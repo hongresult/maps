@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplikasi Catatan Neon - Fitur Edit</title>
+    
+    <!-- Particles.js Library CDN -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #0b0e14;
+            color: #ffffff;
+            min-height: 100vh;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 30px 15px;
+        }
+
+        /* Container Canvas Particles.js */
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        /* Container Main Application */
+        .app-container {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 650px;
+            background: rgba(22, 27, 34, 0.9);
+            backdrop-filter: blur(8px);
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid #00ff00;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
+        }
+
+        /* Header (Clock & Date) */
+        .header-widget {
+            text-align: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #30363d;
+        }
+
+        #clock {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #00ff00;
+            text-shadow: 0 0 10px rgba(0, 255, 0, 0.6);
+            letter-spacing: 1px;
+        }
+
+        #headerDate {
+            font-size: 0.95rem;
+            color: #00ffff;
+            margin-top: 5px;
+        }
+
+        h2 {
+            color: #ffffff;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 25px;
+        }
+
+        input[type="text"], textarea {
+            width: 100%;
+            padding: 12px;
+            background-color: #0d0f12;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            color: #fff;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        input[type="text"]:focus, textarea:focus {
+            border-color: #00ffff;
+            box-shadow: 0 0 8px rgba(0, 255, 255, 0.4);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        button.btn-primary {
+            padding: 12px;
+            background-color: #00ff00;
+            color: #000;
+            font-weight: bold;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        button.btn-primary:hover {
+            background-color: #00ffff;
+            box-shadow: 0 0 12px rgba(0, 255, 255, 0.6);
+        }
+
+        .search-box {
+            margin-bottom: 20px;
+        }
+
+        .notes-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .card {
+            background: #21262d;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #00ffff;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 12px;
+            width: 100%;
+            min-width: 0;
+        }
+
+        .note-content {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .note-content h3 {
+            color: #00ffff;
+            margin-bottom: 6px;
+            font-size: 1.1rem;
+            white-space: pre-wrap;
+            overflow-wrap: anywhere;
+            word-break: break-word;
+        }
+
+        .note-content p {
+            color: #c9d1d9;
+            font-size: 0.95rem;
+            line-height: 1.4;
+            white-space: pre-wrap;
+            overflow-wrap: anywhere;
+            word-break: break-word;
+        }
+
+        /* Action Buttons Container */
+        .card-actions {
+            display: flex;
+            gap: 6px;
+            flex-shrink: 0;
+        }
+
+        .btn-action {
+            background: transparent;
+            padding: 6px 10px;
+            font-size: 0.8rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: 0.2s;
+            font-weight: 600;
+        }
+
+        .edit-btn {
+            color: #00ffff;
+            border: 1px solid #00ffff;
+        }
+
+        .edit-btn:hover {
+            background: #00ffff;
+            color: #000;
+            box-shadow: 0 0 8px rgba(0, 255, 255, 0.6);
+        }
+
+        .delete-btn {
+            color: #ff0055;
+            border: 1px solid #ff0055;
+        }
+
+        .delete-btn:hover {
+            background: #ff0055;
+            color: #fff;
+            box-shadow: 0 0 8px rgba(255, 0, 85, 0.6);
+        }
+
+        .save-btn {
+            color: #00ff00;
+            border: 1px solid #00ff00;
+        }
+
+        .save-btn:hover {
+            background: #00ff00;
+            color: #000;
+            box-shadow: 0 0 8px rgba(0, 255, 0, 0.6);
+        }
+
+        .cancel-btn {
+            color: #8b949e;
+            border: 1px solid #8b949e;
+        }
+
+        .cancel-btn:hover {
+            background: #8b949e;
+            color: #fff;
+        }
+
+        /* Form Edit Inline */
+        .edit-form {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            width: 100%;
+        }
+
+        .empty-text {
+            text-align: center;
+            color: #8b949e;
+            font-style: italic;
+            padding: 10px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="particles-js"></div>
+
+    <div class="app-container">
+        
+        <div class="header-widget">
+            <div id="clock">00:00:00 WIB</div>
+            <div id="headerDate">Loading tanggal...</div>
+        </div>
+
+        <h2>Buat Catatan Baru</h2>
+        <div class="input-group">
+            <input type="text" id="noteTitle" placeholder="Judul catatan..." />
+            <textarea id="noteBody" placeholder="Tuliskan isi catatan di sini..."></textarea>
+            <button class="btn-primary" id="addBtn">Tambah Catatan</button>
+        </div>
+
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="🔍 Cari catatan..." />
+        </div>
+
+        <div id="notesList" class="notes-list"></div>
+
+    </div>
+
+    <script>
+        /* =========================
+        1. RANDOM PARTICLES.JS
+        ========================= */
+        const getRandom = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
+        const getRandomFloat = (min, max) => parseFloat((Math.random() * (max - min) + min).toFixed(2));
+
+        const colorPalettes = [
+            ["#00ff00", "#00ffff", "#7cfc00", "#ff00ff"],
+            ["#ff0055", "#ff5500", "#ffcc00", "#00ffcc"],
+            ["#8a2be2", "#00ffff", "#ff1493", "#76ff03"],
+            ["#ffffff", "#00e5ff", "#0088ff", "#7000ff"]
+        ];
+
+        const randomColors = colorPalettes[Math.floor(Math.random() * colorPalettes.length)];
+        const randomParticleCount = getRandom(60, 120);
+        const randomDistance = getRandom(110, 180);
+
+        particlesJS("particles-js", {
+            "particles": {
+                "number": {
+                    "value": randomParticleCount,
+                    "density": { "enable": true, "value_area": 200 }
+                },
+                "color": { "value": randomColors },
+                "shape": { "type": "circle" },
+                "opacity": {
+                    "value": getRandomFloat(0.4, 0.8),
+                    "random": true
+                },
+                "size": {
+                    "value": getRandomFloat(1.5, 5.0),
+                    "random": true
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": randomDistance,
+                    "color": randomColors[0],
+                    "opacity": getRandomFloat(0.2, 0.5),
+                    "width": getRandomFloat(1.0, 2.0)
+                },
+                "move": {
+                    "enable": true,
+                    "speed": getRandomFloat(1.5, 4.0),
+                    "direction": "none",
+                    "random": true,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": { "enable": true, "mode": "grab" },
+                    "onclick": { "enable": true, "mode": "push" },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": {
+                        "distance": randomDistance + 20,
+                        "line_linked": { "opacity": 0.8 }
+                    },
+                    "push": { "particles_nb": getRandom(2, 5) }
+                }
+            },
+            "retina_detect": true
+        });
+
+        /* =========================
+        2. LIVE CLOCK & DATE
+        ========================= */
+        function updateClock() {
+            const now = new Date(
+                new Date().toLocaleString("en-US", { timeZone: "Asia/Jakarta" })
+            );
+
+            const h = String(now.getHours()).padStart(2, "0");
+            const m = String(now.getMinutes()).padStart(2, "0");
+            const s = String(now.getSeconds()).padStart(2, "0");
+
+            const clockElem = document.getElementById("clock");
+            if (clockElem) clockElem.textContent = `${h}:${m}:${s} WIB`;
+
+            const hari = ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"];
+            const bulan = [
+                "Januari", "Februari", "Maret", "April", "Mei", "Juni",
+                "Juli", "Agustus", "September", "Oktober", "November", "Desember"
+            ];
+
+            const dateElem = document.getElementById("headerDate");
+            if (dateElem) {
+                dateElem.textContent = `${hari[now.getDay()]}, ${String(now.getDate()).padStart(2, "0")} ${bulan[now.getMonth()]} ${now.getFullYear()}`;
+            }
+        }
+
+        setInterval(updateClock, 1000);
+        updateClock();
+
+        /* =========================
+        3. NOTES APP WITH EDIT FEATURE
+        ========================= */
+        const noteTitle = document.getElementById('noteTitle');
+        const noteBody = document.getElementById('noteBody');
+        const addBtn = document.getElementById('addBtn');
+        const notesList = document.getElementById('notesList');
+        const searchInput = document.getElementById('searchInput');
+
+        // Melacak indeks catatan yang sedang diedit (-1 berarti tidak ada)
+        let editingIndex = -1;
+
+        function getNotes() {
+            const saved = localStorage.getItem('app_notes');
+            return saved ? JSON.parse(saved) : [];
+        }
+
+        function saveNotes(notes) {
+            localStorage.setItem('app_notes', JSON.stringify(notes));
+        }
+
+        function renderNotes() {
+            const notes = getNotes();
+            notesList.innerHTML = '';
+
+            if (notes.length === 0) {
+                notesList.innerHTML = '<p class="empty-text">Belum ada catatan terdaftar.</p>';
+                return;
+            }
+
+            notes.forEach((note, index) => {
+                const card = document.createElement('div');
+                card.className = 'card';
+
+                if (editingIndex === index) {
+                    // Mode Edit Inline
+                    card.innerHTML = `
+                        <div class="edit-form">
+                            <input type="text" id="editTitle_${index}" value="${escapeHtml(note.title)}" />
+                            <textarea id="editBody_${index}">${escapeHtml(note.body)}</textarea>
+                            <div class="card-actions">
+                                <button class="btn-action save-btn" onclick="saveEdit(${index})">Simpan</button>
+                                <button class="btn-action cancel-btn" onclick="cancelEdit()">Batal</button>
+                            </div>
+                        </div>
+                    `;
+                } else {
+                    // Mode Tampilan Normal
+                    card.innerHTML = `
+                        <div class="note-content">
+                            <h3>${escapeHtml(note.title)}</h3>
+                            <p>${escapeHtml(note.body)}</p>
+                        </div>
+                        <div class="card-actions">
+                            <button class="btn-action edit-btn" onclick="startEdit(${index})">Edit</button>
+                            <button class="btn-action delete-btn" onclick="deleteNote(${index})">Hapus</button>
+                        </div>
+                    `;
+                }
+
+                notesList.appendChild(card);
+            });
+
+            applySearchFilter();
+        }
+
+        // Tambah Catatan
+        addBtn.addEventListener('click', () => {
+            const title = noteTitle.value.trim();
+            const body = noteBody.value.trim();
+
+            if (!title && !body) {
+                alert('Harap isi judul atau pesan catatan!');
+                return;
+            }
+
+            const notes = getNotes();
+            notes.unshift({ title: title || 'Tanpa Judul', body });
+            saveNotes(notes);
+
+            noteTitle.value = '';
+            noteBody.value = '';
+            editingIndex = -1;
+            renderNotes();
+        });
+
+        // Masuk Ke Mode Edit
+        function startEdit(index) {
+            editingIndex = index;
+            renderNotes();
+        }
+
+        // Simpan Hasil Edit
+        function saveEdit(index) {
+            const newTitle = document.getElementById(`editTitle_${index}`).value.trim();
+            const newBody = document.getElementById(`editBody_${index}`).value.trim();
+
+            if (!newTitle && !newBody) {
+                alert('Catatan tidak boleh kosong!');
+                return;
+            }
+
+            const notes = getNotes();
+            notes[index] = { title: newTitle || 'Tanpa Judul', body: newBody };
+            saveNotes(notes);
+
+            editingIndex = -1;
+            renderNotes();
+        }
+
+        // Batal Edit
+        function cancelEdit() {
+            editingIndex = -1;
+            renderNotes();
+        }
+
+        // Hapus Catatan
+        function deleteNote(index) {
+            const notes = getNotes();
+            notes.splice(index, 1);
+            saveNotes(notes);
+            
+            if (editingIndex === index) editingIndex = -1;
+            renderNotes();
+        }
+
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        /* =========================
+        4. SEARCH FILTER
+        ========================= */
+        function applySearchFilter() {
+            if (!searchInput) return;
+            const value = searchInput.value.toLowerCase().trim();
+            
+            document.querySelectorAll('.card').forEach(card => {
+                const text = card.textContent.toLowerCase();
+                card.style.display = text.includes(value) ? '' : 'none';
+            });
+        }
+
+        if (searchInput) {
+            searchInput.addEventListener('input', applySearchFilter);
+        }
+
+        renderNotes();
+    </script>
+</body>
+</html>
