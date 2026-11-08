@@ -556,7 +556,7 @@ body::before {
             </div>
         </div>
 
-        <!-- CONTROLS: SEARCH ONLY (TOMBOL TAMBAH PASARAN DIHILANGKAN) -->
+        <!-- CONTROLS: SEARCH ONLY -->
         <div class="controls-row">
             <div class="search-container">
                 <span class="search-icon">🔍</span>
@@ -606,7 +606,7 @@ body::before {
                             </tr>
                         </thead>
                         <tbody id="tbody-card-macau-0005">
-                            <!-- Tersinkronisasi otomatis via JavaScript & localStorage -->
+
                         </tbody>
                     </table>
                 </div>
@@ -614,6 +614,50 @@ body::before {
             </div>
         </div>
 
+        <!-- CARD 2 (MARYLAND MID) -->
+        <div class="card" data-card-key="card-maryland-mid">
+            <div class="time-box">
+                <div class="time">00:30</div>
+                <div class="wib">WIB</div>
+                <div class="status"></div>
+            </div>
+            <div class="links">
+                <div class="item">
+                    <input type="checkbox">
+                    <a href="https://www.mdlottery.com/player-tools/winning-numbers/#pick-3-4-5" target="_blank">
+                        MARYLAND MID
+                    </a>
+                </div>
+                <div class="item">
+                    <input type="checkbox">
+                    <a href="https://www.youtube.com/@mdlottery/videos" target="_blank">
+                        MARYLAND MID YOUTUBE
+                    </a>
+                </div>
+
+                <!-- TOMBOL LIHAT HISTORY -->
+                <button class="toggle-history-btn" onclick="toggleHistory(this)">
+                    📜 Lihat History Result
+                </button>
+
+                <!-- TABEL HISTORY KELUARAN (HANYA P1 SAJA) -->
+                <div class="history-table-wrapper">
+                    <table class="history-table">
+                        <thead>
+                            <tr>
+                                <th>Tanggal</th>
+                                <th>Prize 1</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody-card-maryland-mid">
+
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>        
+        
     </div>
 
     <!-- FOOTER -->
@@ -696,6 +740,11 @@ const defaultHistoryData = {
         { date: '04-11-2026', p1: '0328', p2: '5419', p3: '3683' },
         { date: '03-11-2026', p1: '6828', p2: '5100', p3: '6437' },
         { date: '02-11-2026', p1: '2617', p2: '8236', p3: '6493' }
+    ],
+    'card-maryland-mid': [
+        { date: '04-11-2026', p1: '1112' },
+        { date: '03-11-2026', p1: '2221' },
+        { date: '02-11-2026', p1: '3332' }
     ]
 };
 
@@ -717,20 +766,26 @@ function renderHistoryTable(cardKey) {
     const tbody = document.getElementById('tbody-' + cardKey);
     if (!tbody) return;
 
+    const table = tbody.closest('table');
+    const hasP2P3Header = table && table.querySelectorAll('thead th').length > 2;
+
     const data = getCardHistory(cardKey);
     let html = '';
+    
     if (data.length === 0) {
-        html = `<tr><td colspan="4" style="font-style:italic; font-size:13px;">Belum ada data history.</td></tr>`;
+        const colSpanCount = hasP2P3Header ? 4 : 2;
+        html = `<tr><td colspan="${colSpanCount}" style="font-style:italic; font-size:13px;">Belum ada data history.</td></tr>`;
     } else {
         data.forEach(row => {
-            html += `
-                <tr>
-                    <td>${row.date}</td>
-                    <td>${row.p1}</td>
-                    <td>${row.p2}</td>
-                    <td>${row.p3}</td>
-                </tr>
-            `;
+            html += `<tr>`;
+            html += `<td>${row.date}</td>`;
+            html += `<td>${row.p1 || '-'}</td>`;
+            
+            if (hasP2P3Header) {
+                html += `<td>${row.p2 || '-'}</td>`;
+                html += `<td>${row.p3 || '-'}</td>`;
+            }
+            html += `</tr>`;
         });
     }
     tbody.innerHTML = html;
