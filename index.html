@@ -272,30 +272,6 @@ body::before {
     pointer-events: none;
 }
 
-.add-btn {
-    font-family: 'Cinzel', serif;
-    font-weight: 700;
-    font-size: 15px;
-    padding: 0 22px;
-    background: var(--accent-wax);
-    color: #fff8eb;
-    border: 2px solid var(--paper-border);
-    border-radius: 8px;
-    cursor: pointer;
-    box-shadow: 0 4px 10px var(--paper-shadow);
-    transition: all 0.25s ease;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    white-space: nowrap;
-}
-
-.add-btn:hover {
-    background: #a32222;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 14px var(--paper-shadow);
-}
-
 /* SCHEDULE CARDS */
 .card-grid {
     display: grid;
@@ -444,15 +420,8 @@ body::before {
     text-decoration: underline;
 }
 
-/* TOGGLE & ADD HISTORY BUTTONS */
-.history-action-row {
-    display: flex;
-    gap: 8px;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-.toggle-history-btn, .add-history-btn {
+/* TOGGLE HISTORY BUTTON */
+.toggle-history-btn {
     font-family: 'Cinzel', serif;
     font-size: 12px;
     font-weight: 700;
@@ -463,27 +432,15 @@ body::before {
     display: inline-flex;
     align-items: center;
     gap: 5px;
-}
-
-.toggle-history-btn {
     background: rgba(0, 0, 0, 0.06);
     color: var(--text-primary);
     border: 1px solid var(--card-border);
+    width: fit-content;
 }
 
 .toggle-history-btn:hover {
     background: var(--accent-gold);
     color: #1a0f05;
-}
-
-.add-history-btn {
-    background: var(--accent-wax);
-    color: #fff8eb;
-    border: 1px solid var(--card-border);
-}
-
-.add-history-btn:hover {
-    background: #a32222;
 }
 
 /* HISTORY TABEL RESULT */
@@ -536,19 +493,6 @@ body::before {
     background: rgba(255, 255, 255, 0.2);
 }
 
-/* Delete button for custom cards */
-.delete-card-btn {
-    opacity: 0.4;
-    transition: opacity 0.2s ease;
-    cursor: pointer;
-    padding: 4px 8px;
-    color: var(--accent-wax);
-    font-size: 14px;
-}
-.card:hover .delete-card-btn {
-    opacity: 1;
-}
-
 /* FOOTER & MODAL */
 .footer {
     margin-top: 50px;
@@ -560,36 +504,6 @@ body::before {
     color: var(--text-secondary);
     letter-spacing: 4px;
     border-top: 2px double var(--paper-border);
-}
-
-.modal-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.7);
-    backdrop-filter: blur(4px);
-    z-index: 9999;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
-}
-
-.modal-overlay.open {
-    opacity: 1;
-    pointer-events: auto;
-}
-
-.modal-content {
-    background: var(--paper-bg);
-    border: 3px double var(--paper-border);
-    border-radius: 12px;
-    padding: 24px;
-    width: 90%;
-    max-width: 480px;
-    box-shadow: 0 10px 30px var(--paper-shadow);
-    color: var(--text-primary);
 }
 
 @media(max-width: 768px) {
@@ -642,15 +556,12 @@ body::before {
             </div>
         </div>
 
-        <!-- CONTROLS: SEARCH & ADD MARKET -->
+        <!-- CONTROLS: SEARCH ONLY (TOMBOL TAMBAH PASARAN DIHILANGKAN) -->
         <div class="controls-row">
             <div class="search-container">
                 <span class="search-icon">🔍</span>
                 <input type="text" id="searchInput" class="search-input" placeholder="Cari Pasaran...">
             </div>
-            <button class="add-btn" onclick="toggleModal(true)">
-                <span>➕ Tambah Pasaran</span>
-            </button>
         </div>
     </div>
 
@@ -678,15 +589,10 @@ body::before {
                     </a>
                 </div>
 
-                <!-- TOMBOL ACTION HISTORY -->
-                <div class="history-action-row">
-                    <button class="toggle-history-btn" onclick="toggleHistory(this)">
-                        📜 Lihat History Result
-                    </button>
-                    <button class="add-history-btn" onclick="openAddHistoryModal('card-macau-0005')">
-                        ➕ Tambah
-                    </button>
-                </div>
+                <!-- TOMBOL LIHAT HISTORY -->
+                <button class="toggle-history-btn" onclick="toggleHistory(this)">
+                    📜 Lihat History Result
+                </button>
 
                 <!-- TABEL HISTORY KELUARAN (MAKSIMAL 7 HARI) -->
                 <div class="history-table-wrapper">
@@ -713,61 +619,6 @@ body::before {
     <!-- FOOTER -->
     <div class="footer">BY HONG RESULT</div>
 
-</div>
-
-<!-- ADD MARKET MODAL -->
-<div class="modal-overlay" id="addModal">
-    <div class="modal-content">
-        <h3 class="font-bold text-xl mb-4 text-center" style="font-family: 'Cinzel', serif;">Tambah Pasaran Baru</h3>
-        <div class="flex flex-col gap-3">
-            <div>
-                <label class="text-sm font-bold block mb-1">Jam Result (HH:MM)</label>
-                <input type="text" id="newTime" placeholder="Contoh: 14:00" class="search-input !py-2 !px-3">
-            </div>
-            <div>
-                <label class="text-sm font-bold block mb-1">Nama Pasaran / Link Text</label>
-                <input type="text" id="newName" placeholder="Contoh: BULLSEYE 12:15" class="search-input !py-2 !px-3">
-            </div>
-            <div>
-                <label class="text-sm font-bold block mb-1">URL Target (Opsional)</label>
-                <input type="text" id="newUrl" placeholder="https://..." class="search-input !py-2 !px-3">
-            </div>
-        </div>
-        <div class="flex justify-end gap-2 mt-6">
-            <button class="theme-btn" onclick="toggleModal(false)">Batal</button>
-            <button class="add-btn !py-2 !px-4" onclick="addNewMarket()">Simpan</button>
-        </div>
-    </div>
-</div>
-
-<!-- ADD HISTORY ROW MODAL -->
-<div class="modal-overlay" id="addHistoryModal">
-    <div class="modal-content">
-        <h3 class="font-bold text-xl mb-4 text-center" style="font-family: 'Cinzel', serif;">Tambah Data History</h3>
-        <input type="hidden" id="targetCardKey">
-        <div class="flex flex-col gap-3">
-            <div>
-                <label class="text-sm font-bold block mb-1">Tanggal (DD-MM-YYYY)</label>
-                <input type="text" id="inputHistDate" placeholder="Contoh: 05-11-2026" class="search-input !py-2 !px-3">
-            </div>
-            <div>
-                <label class="text-sm font-bold block mb-1">Prize 1</label>
-                <input type="text" id="inputPrize1" placeholder="Contoh: 0328" class="search-input !py-2 !px-3">
-            </div>
-            <div>
-                <label class="text-sm font-bold block mb-1">Prize 2</label>
-                <input type="text" id="inputPrize2" placeholder="Contoh: 5419" class="search-input !py-2 !px-3">
-            </div>
-            <div>
-                <label class="text-sm font-bold block mb-1">Prize 3</label>
-                <input type="text" id="inputPrize3" placeholder="Contoh: 3683" class="search-input !py-2 !px-3">
-            </div>
-        </div>
-        <div class="flex justify-end gap-2 mt-6">
-            <button class="theme-btn" onclick="toggleAddHistoryModal(false)">Batal</button>
-            <button class="add-btn !py-2 !px-4" onclick="saveNewHistoryRow()">Simpan</button>
-        </div>
-    </div>
 </div>
 
 <script>
@@ -862,13 +713,6 @@ function getCardHistory(cardKey) {
     return data;
 }
 
-function saveCardHistory(cardKey, data) {
-    if (data.length > 7) {
-        data = data.slice(0, 7);
-    }
-    localStorage.setItem('hist_data_' + cardKey, JSON.stringify(data));
-}
-
 function renderHistoryTable(cardKey) {
     const tbody = document.getElementById('tbody-' + cardKey);
     if (!tbody) return;
@@ -899,54 +743,6 @@ function initAllHistories() {
             renderHistoryTable(key);
         }
     });
-}
-
-/* ADD HISTORY MODAL LOGIC */
-function openAddHistoryModal(cardKey) {
-    document.getElementById('targetCardKey').value = cardKey;
-    document.getElementById('inputHistDate').value = '';
-    document.getElementById('inputPrize1').value = '';
-    document.getElementById('inputPrize2').value = '';
-    document.getElementById('inputPrize3').value = '';
-    document.getElementById('addHistoryModal').classList.add('open');
-}
-
-function toggleAddHistoryModal(open) {
-    const modal = document.getElementById('addHistoryModal');
-    if (open) modal.classList.add('open');
-    else modal.classList.remove('open');
-}
-
-function saveNewHistoryRow() {
-    const cardKey = document.getElementById('targetCardKey').value;
-    const date = document.getElementById('inputHistDate').value.trim();
-    const p1 = document.getElementById('inputPrize1').value.trim();
-    const p2 = document.getElementById('inputPrize2').value.trim();
-    const p3 = document.getElementById('inputPrize3').value.trim();
-
-    if (!date || !p1) {
-        alert('Mohon isi minimal Tanggal dan Prize 1.');
-        return;
-    }
-
-    const data = getCardHistory(cardKey);
-    data.unshift({ date, p1, p2: p2 || '-', p3: p3 || '-' });
-    
-    saveCardHistory(cardKey, data);
-    renderHistoryTable(cardKey);
-
-    // Otomatis buka tabel jika sedang tertutup agar langsung tersinkron dan terlihat
-    const cardEl = document.querySelector(`[data-card-key="${cardKey}"]`);
-    if (cardEl) {
-        const wrapper = cardEl.querySelector('.history-table-wrapper');
-        const btn = cardEl.querySelector('.toggle-history-btn');
-        if (wrapper && !wrapper.classList.contains('show')) {
-            wrapper.classList.add('show');
-            if(btn) btn.innerHTML = '📜 Sembunyikan History';
-        }
-    }
-
-    toggleAddHistoryModal(false);
 }
 
 /* THEME MANAGEMENT */
@@ -1002,160 +798,6 @@ function bindCheckboxes() {
 }
 bindCheckboxes();
 
-/* DYNAMIC MARKET CREATION & DELETION */
-function toggleModal(open) {
-    const modal = document.getElementById('addModal');
-    if (open) modal.classList.add('open');
-    else modal.classList.remove('open');
-}
-
-function addNewMarket() {
-    const timeVal = document.getElementById('newTime').value.trim();
-    const nameVal = document.getElementById('newName').value.trim();
-    const urlVal = document.getElementById('newUrl').value.trim() || '#';
-
-    if (!timeVal || !nameVal) {
-        alert('Mohon isi jam result dan nama pasaran.');
-        return;
-    }
-
-    const cardKey = 'custom-' + Date.now();
-    const cardGrid = document.getElementById('cardGrid');
-
-    const cardDiv = document.createElement('div');
-    cardDiv.className = 'card';
-    cardDiv.setAttribute('data-id', cardKey);
-    cardDiv.setAttribute('data-card-key', cardKey);
-    cardDiv.innerHTML = `
-        <div class="time-box">
-            <div class="time">${timeVal}</div>
-            <div class="wib">WIB</div>
-            <div class="status"></div>
-        </div>
-        <div class="links">
-            <div class="item">
-                <input type="checkbox">
-                <a href="${urlVal}" target="_blank">${nameVal.toUpperCase()}</a>
-                <span class="delete-card-btn ml-auto" onclick="removeCard('${cardKey}')" title="Hapus Pasaran">🗑️</span>
-            </div>
-            <div class="history-action-row">
-                <button class="toggle-history-btn" onclick="toggleHistory(this)">
-                    📜 Lihat History Result
-                </button>
-                <button class="add-history-btn" onclick="openAddHistoryModal('${cardKey}')">
-                    ➕ Tambah
-                </button>
-            </div>
-            <div class="history-table-wrapper">
-                <table class="history-table">
-                    <thead>
-                        <tr>
-                            <th>Tanggal</th>
-                            <th>Prize 1</th>
-                            <th>Prize 2</th>
-                            <th>Prize 3</th>
-                        </tr>
-                    </thead>
-                    <tbody id="tbody-${cardKey}">
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    `;
-
-    cardGrid.appendChild(cardDiv);
-    saveCustomCards();
-    bindCheckboxes();
-    renderHistoryTable(cardKey);
-    updateStatus();
-
-    // Reset Form
-    document.getElementById('newTime').value = '';
-    document.getElementById('newName').value = '';
-    document.getElementById('newUrl').value = '';
-    toggleModal(false);
-}
-
-function removeCard(cardKey) {
-    const card = document.querySelector(`.card[data-card-key="${cardKey}"]`);
-    if (card) {
-        card.remove();
-        localStorage.removeItem('hist_data_' + cardKey);
-        saveCustomCards();
-    }
-}
-
-function saveCustomCards() {
-    const customCards = [];
-    document.querySelectorAll('.card[data-id^="custom-"]').forEach(card => {
-        const time = card.querySelector('.time').innerText;
-        const link = card.querySelector('.item a');
-        const cardKey = card.getAttribute('data-card-key');
-        customCards.push({
-            id: cardKey,
-            time: time,
-            name: link.innerText,
-            url: link.getAttribute('href')
-        });
-    });
-    localStorage.setItem('vintage_custom_cards', JSON.stringify(customCards));
-}
-
-function loadCustomCards() {
-    const saved = localStorage.getItem('vintage_custom_cards');
-    if (!saved) return;
-    const cards = JSON.parse(saved);
-    const cardGrid = document.getElementById('cardGrid');
-
-    cards.forEach(c => {
-        const cardKey = c.id;
-
-        const cardDiv = document.createElement('div');
-        cardDiv.className = 'card';
-        cardDiv.setAttribute('data-id', cardKey);
-        cardDiv.setAttribute('data-card-key', cardKey);
-        cardDiv.innerHTML = `
-            <div class="time-box">
-                <div class="time">${c.time}</div>
-                <div class="wib">WIB</div>
-                <div class="status"></div>
-            </div>
-            <div class="links">
-                <div class="item">
-                    <input type="checkbox">
-                    <a href="${c.url}" target="_blank">${c.name}</a>
-                    <span class="delete-card-btn ml-auto" onclick="removeCard('${cardKey}')" title="Hapus Pasaran">🗑️</span>
-                </div>
-                <div class="history-action-row">
-                    <button class="toggle-history-btn" onclick="toggleHistory(this)">
-                        📜 Lihat History Result
-                    </button>
-                    <button class="add-history-btn" onclick="openAddHistoryModal('${cardKey}')">
-                        ➕ Tambah
-                    </button>
-                </div>
-                <div class="history-table-wrapper">
-                    <table class="history-table">
-                        <thead>
-                            <tr>
-                                <th>Tanggal</th>
-                                <th>Prize 1</th>
-                                <th>Prize 2</th>
-                                <th>Prize 3</th>
-                            </tr>
-                        </thead>
-                        <tbody id="tbody-${cardKey}">
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        `;
-        cardGrid.appendChild(cardDiv);
-        renderHistoryTable(cardKey);
-    });
-    bindCheckboxes();
-}
-loadCustomCards();
 initAllHistories();
 
 /* SCHEDULE COUNTDOWN & HOLIDAY STATUS */
