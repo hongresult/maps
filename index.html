@@ -516,6 +516,24 @@ body::before {
     .theme-btn { font-size: 11px; padding: 6px 10px; }
     .history-table th, .history-table td { padding: 7px 6px; font-size: 13px; }
 }
+
+/* Singapore calculator — vintage parchment, theme-aware */
+.singapore-actions{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.sg-calc-overlay{position:fixed;inset:0;z-index:3000;background:rgba(16,10,4,.78);display:none;align-items:center;justify-content:center;padding:16px;overflow-y:auto}
+.sg-calc-overlay.show{display:flex}
+.sg-matrix-panel{width:min(100%,530px);max-height:95vh;overflow-y:auto;background:var(--paper-bg);color:var(--text-primary);border:4px double var(--paper-border);border-radius:16px;padding:22px;box-shadow:0 15px 45px var(--paper-shadow),inset 0 0 30px rgba(140,109,63,.12);font-family:'Cinzel',serif}
+.sg-calc-head{display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:clamp(17px,4vw,24px);font-weight:900;letter-spacing:1px;color:var(--accent-wax)}
+.sg-matrix-subtitle{text-align:center;color:var(--text-secondary);font:italic 17px 'Playfair Display',serif;margin:8px 0 18px}
+.sg-matrix-section{text-align:center;border-top:1px solid var(--card-border);border-bottom:1px solid var(--card-border);padding:10px 4px;margin:15px 0 12px;background:var(--card-bg);color:var(--text-primary);font-size:13px;font-weight:700;letter-spacing:2px}
+.sg-matrix-numbers{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px}
+.sg-number{width:100%;min-width:0;aspect-ratio:1/1;max-height:66px;text-align:center;font:700 clamp(15px,3vw,23px) 'Roboto Mono',monospace;border:2px solid var(--paper-border);border-radius:8px;background:var(--card-bg);color:var(--text-primary);outline:none}
+.sg-number:focus{border-color:var(--accent-wax);box-shadow:0 0 0 3px rgba(139,30,30,.16)}
+.sg-matrix-extra{display:flex;justify-content:center}.sg-matrix-extra .sg-number{width:65px;height:65px}
+.sg-matrix-result{display:block;width:min(100%,300px);margin:0 auto;text-align:center;padding:14px;font:900 30px 'Roboto Mono',monospace;letter-spacing:4px;background:var(--card-bg);color:var(--accent-wax);border:2px double var(--paper-border);border-radius:10px}
+.sg-matrix-result.processing{animation:vintagePulse .45s infinite alternate}
+.sg-matrix-actions{text-align:center;margin-top:18px}.sg-matrix-actions button{background:var(--accent-wax);color:#fff8eb;border:1px solid var(--paper-border);border-radius:8px;padding:11px 30px;font:700 14px 'Cinzel',serif;cursor:pointer}
+.sg-matrix-note{text-align:center;color:var(--text-secondary);font:italic 13px 'IM Fell English',serif;margin-top:15px}
+@media(max-width:480px){.sg-matrix-panel{padding:14px}.sg-matrix-numbers{gap:4px}.sg-number{border-width:1px}}
 </style>
 </head>
 <body>
@@ -3205,9 +3223,10 @@ Tutup Pasaran Pukul 15:00 WIB Dan Keluaran Nomor Result Pukul 15:15 WIB.
                     </a>
                 </div>
 
-                <button class="toggle-history-btn" onclick="toggleHistory(this)">
-                    📜 Lihat History Result
-                </button>
+                <div class="singapore-actions">
+                    <button class="toggle-history-btn" onclick="toggleHistory(this)">📜 Lihat History Result</button>
+                    <button class="toggle-history-btn" onclick="openSingaporeCalculator()">🧮 Kalkulator</button>
+                </div>
 
                 <div class="history-table-wrapper">
                     <table class="history-table">
@@ -4159,6 +4178,7 @@ const defaultHistoryData = {
         { date: '04-11-2026', p1: '4956' }
     ],
     'card-newjersey-mid': [
+        { date: '12-11-2026', p1: '3108' },
         { date: '11-11-2026', p1: '4296' },
         { date: '10-11-2026', p1: '8644' },
         { date: '09-11-2026', p1: '6737' },
@@ -4169,6 +4189,7 @@ const defaultHistoryData = {
         { date: '04-11-2026', p1: '7556' }
     ],
     'card-germany-plus5': [
+        { date: '12-11-2026', p1: '9616' },
         { date: '11-11-2026', p1: '3225' },
         { date: '10-11-2026', p1: '9435' },
         { date: '09-11-2026', p1: '9945' },
@@ -4179,6 +4200,7 @@ const defaultHistoryData = {
         { date: '04-11-2026', p1: '5393' }
     ],
     'card-turki-pools': [
+        { date: '12-11-2026', p1: '2067', p2: '3993', p3: '9084' },
         { date: '11-11-2026', p1: '8207', p2: '1103', p3: '8019' },
         { date: '10-11-2026', p1: '6233', p2: '9870', p3: '7769' },
         { date: '09-11-2026', p1: '3027', p2: '2007', p3: '7576' },
@@ -4189,6 +4211,8 @@ const defaultHistoryData = {
         { date: '04-11-2026', p1: '4866', p2: '1969', p3: '6841' }
     ],
     'card-tennesse-mid': [
+        { date: '12-11-2026', p1: '8142' },
+        { date: '11-11-2026', p1: '3121' },
         { date: '11-11-2026', p1: '3121' },
         { date: '10-11-2026', p1: '1676' },
         { date: '08-11-2026', p1: '7391' },
@@ -4199,6 +4223,7 @@ const defaultHistoryData = {
         { date: '03-11-2026', p1: '4600' }
     ],
     'card-indiana-mid': [
+        { date: '12-11-2026', p1: '1547' },
         { date: '11-11-2026', p1: '2518' },
         { date: '10-11-2026', p1: '1905' },
         { date: '09-11-2026', p1: '7904' },
@@ -4209,6 +4234,7 @@ const defaultHistoryData = {
         { date: '04-11-2026', p1: '1728' }
     ],
     'card-texas-day': [
+        { date: '12-11-2026', p1: '8179' },
         { date: '11-11-2026', p1: '2743' },
         { date: '10-11-2026', p1: '7068' },
         { date: '08-11-2026', p1: '0328' },
@@ -4219,6 +4245,7 @@ const defaultHistoryData = {
         { date: '03-11-2026', p1: '5715' }
     ],
     'card-kentucky-mid': [
+        { date: '12-11-2026', p1: '3972' },
         { date: '11-11-2026', p1: '6198' },
         { date: '10-11-2026', p1: '6568' },
         { date: '09-11-2026', p1: '0625' },
@@ -4229,6 +4256,7 @@ const defaultHistoryData = {
         { date: '04-11-2026', p1: '5038' }
     ],
     'card-florida-mid': [
+        { date: '12-11-2026', p1: '8524' },
         { date: '11-11-2026', p1: '6726' },
         { date: '10-11-2026', p1: '8076' },
         { date: '09-11-2026', p1: '2789' },
@@ -4239,6 +4267,7 @@ const defaultHistoryData = {
         { date: '04-11-2026', p1: '6734' }
     ],
     'card-pennsylvania-day': [
+        { date: '12-11-2026', p1: '9591' },
         { date: '11-11-2026', p1: '9362' },
         { date: '10-11-2026', p1: '3638' },
         { date: '09-11-2026', p1: '7238' },
@@ -5138,8 +5167,64 @@ function updateStatus() {
         }
     });
 }
+
+/* Singapore TOTO matrix: formula preserved from supplied AI TOTO SYSTEM */
+let sgTimer;
+function openSingaporeCalculator(){document.getElementById('sgCalcOverlay').classList.add('show');document.querySelector('.sg-number').focus();}
+function closeSingaporeCalculator(){document.getElementById('sgCalcOverlay').classList.remove('show');}
+function sgCompute(){
+ const inputs=[...document.querySelectorAll('.sg-number')];
+ const result=document.getElementById('sgMatrixResult');
+ clearTimeout(sgTimer);
+ if(inputs.some(i=>i.value.trim()==='')){result.value='';result.classList.remove('processing');return;}
+ result.value='PROCESS';result.classList.add('processing');
+ sgTimer=setTimeout(()=>{
+  let ekor=0,ekor1=0,kop=0,asi=0;
+  for(let j=0;j<7;j++){
+   const val=parseInt(inputs[j].value,10)||0;
+   if(j>=1&&j<=4){ekor1+=val;if(j<=2)asi+=val;else kop+=val;}
+   else ekor+=val;
+  }
+  ekor=(ekor+ekor1*2).toString().slice(-2);
+  asi=asi.toString().slice(-1);
+  kop=kop.toString().slice(-1);
+  result.value=asi+kop+ekor;
+  result.classList.remove('processing');
+ },950);
+}
+function sgClear(){clearTimeout(sgTimer);document.querySelectorAll('.sg-number').forEach(i=>i.value='');const r=document.getElementById('sgMatrixResult');r.value='';r.classList.remove('processing');document.querySelector('.sg-number').focus();}
+document.addEventListener('input',e=>{
+ if(!e.target.classList.contains('sg-number'))return;
+ e.target.value=e.target.value.replace(/\D/g,'').slice(0,2);
+ if(e.target.value.length===2){const fields=[...document.querySelectorAll('.sg-number')];const idx=fields.indexOf(e.target);if(idx<6)fields[idx+1].focus();}
+ sgCompute();
+});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeSingaporeCalculator();});
+
 setInterval(updateStatus, 1000);
 updateStatus();
 </script>
+
+<div class="sg-calc-overlay" id="sgCalcOverlay" onclick="if(event.target===this)closeSingaporeCalculator()" role="dialog" aria-modal="true" aria-label="AI TOTO Singapore Calculator">
+ <div class="sg-calc-panel sg-matrix-panel">
+  <div class="sg-calc-head"><span>❦ AI TOTO SYSTEM</span><button class="toggle-history-btn" onclick="closeSingaporeCalculator()" aria-label="Tutup">✕</button></div>
+  <div class="sg-matrix-subtitle">SINGAPORE POOLS · TOTO</div>
+  <div class="sg-matrix-section">WINNING NUMBERS</div>
+  <div class="sg-matrix-numbers">
+   <input class="sg-number" maxlength="2" inputmode="numeric" aria-label="Winning number 1">
+   <input class="sg-number" maxlength="2" inputmode="numeric" aria-label="Winning number 2">
+   <input class="sg-number" maxlength="2" inputmode="numeric" aria-label="Winning number 3">
+   <input class="sg-number" maxlength="2" inputmode="numeric" aria-label="Winning number 4">
+   <input class="sg-number" maxlength="2" inputmode="numeric" aria-label="Winning number 5">
+   <input class="sg-number" maxlength="2" inputmode="numeric" aria-label="Winning number 6">
+  </div>
+  <div class="sg-matrix-section">ADDITIONAL NUMBER</div>
+  <div class="sg-matrix-extra"><input class="sg-number" maxlength="2" inputmode="numeric" aria-label="Additional number"></div>
+  <div class="sg-matrix-section">RESULT</div>
+  <input id="sgMatrixResult" class="sg-matrix-result" readonly aria-label="Hasil rumus">
+  <div class="sg-matrix-actions"><button onclick="sgClear()">↻ CLEAR</button></div>
+  <div class="sg-matrix-note">Perhitungan otomatis mengikuti rumus AI TOTO SYSTEM yang diberikan. Hasil bukan prediksi undian.</div>
+ </div>
+</div>
 </body>
 </html>
