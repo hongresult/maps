@@ -420,6 +420,74 @@ body::before {
     text-decoration: underline;
 }
 
+.item-link-with-badge {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    width: 100%;
+}
+
+.item-link-with-badge .item-label {
+    flex: 1;
+    min-width: 0;
+    overflow-wrap: break-word;
+}
+
+.logo-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 10px;
+    border-radius: 999px;
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.6px;
+    white-space: nowrap;
+    flex: 0 0 auto;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.18), inset 0 1px 0 rgba(255,255,255,0.35);
+    border: 1px solid rgba(255,255,255,0.15);
+}
+
+.logo-badge svg {
+    width: 14px;
+    height: 14px;
+    display: block;
+}
+
+.youtube-badge {
+    background: linear-gradient(145deg, #ff4d4d, #c40000);
+    color: #fff;
+}
+
+.kick-badge {
+    background: linear-gradient(145deg, #63ff95, #0b8f3d);
+    color: #06250f;
+}
+
+.web-badge {
+    background: linear-gradient(145deg, #41c7ff, #165dff);
+    color: #fff;
+}
+
+.live-badge {
+    background: linear-gradient(145deg, #ffb84d, #ff5e00);
+    color: #fff;
+}
+
+@media(max-width: 768px) {
+    .item-link-with-badge {
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        gap: 8px;
+    }
+    .logo-badge {
+        padding: 4px 7px;
+        font-size: 10px;
+    }
+}
+
 /* TOGGLE HISTORY BUTTON */
 .toggle-history-btn {
     font-family: 'Cinzel', serif;
@@ -1044,14 +1112,29 @@ body::after {
             <div class="links">
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://kick.com/live-ttm4d/videos" target="_blank">
-                        TOTO MACAU 4D 00.00 (KICK)
+                    <a class="item-link-with-badge" href="https://kick.com/live-ttm4d/videos" target="_blank">
+                        <span class="item-label">TOTO MACAU 4D 00.00 (KICK)</span>
+                        <span class="logo-badge kick-badge" aria-label="Kick">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M5 3h4v7.2L15.6 3H21l-7.3 8.1L21 21h-5.5L9 13.6V21H5z"/>
+                            </svg>
+                            <span>KICK</span>
+                        </span>
                     </a>
                 </div>
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://ttmpools.online/" target="_blank">
-                        TOTO MACAU 4D 00.00
+                    <a class="item-link-with-badge" href="https://ttmpools.online/" target="_blank">
+                        <span class="item-label">TOTO MACAU 4D 00.00</span>
+                        <span class="logo-badge web-badge" aria-label="Website">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="12" cy="12" r="9"></circle>
+                                <path d="M3 12h18"></path>
+                                <path d="M12 3a15 15 0 0 1 0 18"></path>
+                                <path d="M12 3a15 15 0 0 0 0 18"></path>
+                            </svg>
+                            <span>Web</span>
+                        </span>
                     </a>
                 </div>
 
@@ -1086,14 +1169,29 @@ body::after {
             <div class="links">
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://www.mdlottery.com/player-tools/winning-numbers/#pick-3-4-5" target="_blank">
-                        MARYLAND MID
+                    <a class="item-link-with-badge" href="https://www.mdlottery.com/player-tools/winning-numbers/#pick-3-4-5" target="_blank">
+                        <span class="item-label">MARYLAND MID</span>
+                        <span class="logo-badge web-badge" aria-label="Web">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="12" cy="12" r="9"></circle>
+                                <path d="M3 12h18"></path>
+                                <path d="M12 3a15 15 0 0 1 0 18"></path>
+                                <path d="M12 3a15 15 0 0 0 0 18"></path>
+                            </svg>
+                            <span>Web</span>
+                        </span>
                     </a>
                 </div>
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://www.youtube.com/@mdlottery/videos" target="_blank">
-                        MARYLAND MID YOUTUBE
+                    <a class="item-link-with-badge" href="https://www.youtube.com/@mdlottery/videos" target="_blank">
+                        <span class="item-label">MARYLAND MID YOUTUBE</span>
+                        <span class="logo-badge youtube-badge" aria-label="YouTube">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.5 31.5 0 0 0 0 12a31.5 31.5 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.5 31.5 0 0 0 24 12a31.5 31.5 0 0 0-.5-5.8ZM9.6 15.7V8.3l6.4 3.7-6.4 3.7Z"/>
+                            </svg>
+                            <span>YouTube</span>
+                        </span>
                     </a>
                 </div>
 
@@ -1128,14 +1226,29 @@ body::after {
             <div class="links">
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://www.ohiolottery.com/home" target="_blank">
-                        OHIO MID
+                    <a class="item-link-with-badge" href="https://www.ohiolottery.com/home" target="_blank">
+                        <span class="item-label">OHIO MID</span>
+                        <span class="logo-badge web-badge" aria-label="Web">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="12" cy="12" r="9"></circle>
+                                <path d="M3 12h18"></path>
+                                <path d="M12 3a15 15 0 0 1 0 18"></path>
+                                <path d="M12 3a15 15 0 0 0 0 18"></path>
+                            </svg>
+                            <span>Web</span>
+                        </span>
                     </a>
                 </div>
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://www.youtube.com/@OHdailydraws/videos" target="_blank">
-                        OHIO MID YOUTUBE
+                    <a class="item-link-with-badge" href="https://www.youtube.com/@OHdailydraws/videos" target="_blank">
+                        <span class="item-label">OHIO MID YOUTUBE</span>
+                        <span class="logo-badge youtube-badge" aria-label="YouTube">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.5 31.5 0 0 0 0 12a31.5 31.5 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.5 31.5 0 0 0 24 12a31.5 31.5 0 0 0-.5-5.8ZM9.6 15.7V8.3l6.4 3.7-6.4 3.7Z"/>
+                            </svg>
+                            <span>YouTube</span>
+                        </span>
                     </a>
                 </div>
 
@@ -1170,14 +1283,33 @@ body::after {
             <div class="links">
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://www.galottery.com/en-us/games/draw-games/cash-four.html#tab-winningNumbers" target="_blank">
-                        GEORGIA MID
+                    <a class="item-link-with-badge" href="https://www.galottery.com/en-us/games/draw-games/cash-four.html#tab-winningNumbers" target="_blank">
+                        <span class="item-label">GEORGIA MID</span>
+                        <span class="logo-badge web-badge" aria-label="Web">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="12" cy="12" r="9"></circle>
+                                <path d="M3 12h18"></path>
+                                <path d="M12 3a15 15 0 0 1 0 18"></path>
+                                <path d="M12 3a15 15 0 0 0 0 18"></path>
+                            </svg>
+                            <span>Web</span>
+                        </span>
                     </a>
                 </div>
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://www.wsbtv.com/lottery/" target="_blank">
-                        GEORGIA MID LIVE
+                    <a class="item-link-with-badge" href="https://www.wsbtv.com/lottery/" target="_blank">
+                        <span class="item-label">GEORGIA MID LIVE</span>
+                        <span class="logo-badge live-badge" aria-label="LIVE">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="12" cy="12" r="2.5"></circle>
+                                <path d="M7.5 7.5a6.4 6.4 0 0 0 0 9"></path>
+                                <path d="M16.5 7.5a6.4 6.4 0 0 1 0 9"></path>
+                                <path d="M4.2 4.2a11 11 0 0 0 0 15.6"></path>
+                                <path d="M19.8 4.2a11 11 0 0 1 0 15.6"></path>
+                            </svg>
+                            <span>LIVE</span>
+                        </span>
                     </a>
                 </div>
 
@@ -1212,14 +1344,29 @@ body::after {
             <div class="links">
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://www.njlottery.com/en-us/drawgames/pick4.html" target="_blank">
-                        NEWJERSEY MID
+                    <a class="item-link-with-badge" href="https://www.njlottery.com/en-us/drawgames/pick4.html" target="_blank">
+                        <span class="item-label">NEWJERSEY MID</span>
+                        <span class="logo-badge web-badge" aria-label="Web">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="12" cy="12" r="9"></circle>
+                                <path d="M3 12h18"></path>
+                                <path d="M12 3a15 15 0 0 1 0 18"></path>
+                                <path d="M12 3a15 15 0 0 0 0 18"></path>
+                            </svg>
+                            <span>Web</span>
+                        </span>
                     </a>
                 </div>
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://www.youtube.com/@newjerseylottery/streams" target="_blank">
-                        NEWJERSEY MID YOUTUBE
+                    <a class="item-link-with-badge" href="https://www.youtube.com/@newjerseylottery/streams" target="_blank">
+                        <span class="item-label">NEWJERSEY MID YOUTUBE</span>
+                        <span class="logo-badge youtube-badge" aria-label="YouTube">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.5 31.5 0 0 0 0 12a31.5 31.5 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.5 31.5 0 0 0 24 12a31.5 31.5 0 0 0-.5-5.8ZM9.6 15.7V8.3l6.4 3.7-6.4 3.7Z"/>
+                            </svg>
+                            <span>YouTube</span>
+                        </span>
                     </a>
                 </div>
 
@@ -1254,14 +1401,29 @@ body::after {
             <div class="links">
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://www.lotto.de/keno" target="_blank">
-                        GERMANY PLUS5
+                    <a class="item-link-with-badge" href="https://www.lotto.de/keno" target="_blank">
+                        <span class="item-label">GERMANY PLUS5</span>
+                        <span class="logo-badge web-badge" aria-label="Web">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="12" cy="12" r="9"></circle>
+                                <path d="M3 12h18"></path>
+                                <path d="M12 3a15 15 0 0 1 0 18"></path>
+                                <path d="M12 3a15 15 0 0 0 0 18"></path>
+                            </svg>
+                            <span>Web</span>
+                        </span>
                     </a>
                 </div>
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://www.youtube.com/@kenovonlotto3573/videos" target="_blank">
-                        GERMANY PLUS5 YOUTUBE
+                    <a class="item-link-with-badge" href="https://www.youtube.com/@kenovonlotto3573/videos" target="_blank">
+                        <span class="item-label">GERMANY PLUS5 YOUTUBE</span>
+                        <span class="logo-badge youtube-badge" aria-label="YouTube">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.5 31.5 0 0 0 0 12a31.5 31.5 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.5 31.5 0 0 0 24 12a31.5 31.5 0 0 0-.5-5.8ZM9.6 15.7V8.3l6.4 3.7-6.4 3.7Z"/>
+                            </svg>
+                            <span>YouTube</span>
+                        </span>
                     </a>
                 </div>
 
@@ -1300,8 +1462,17 @@ Perubahan jam result tanggal 25 Oktober 2026.
             <div class="links">
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://turkipools.vip/" target="_blank">
-                        TURKI POOLS
+                    <a class="item-link-with-badge" href="https://turkipools.vip/" target="_blank">
+                        <span class="item-label">TURKI POOLS</span>
+                        <span class="logo-badge web-badge" aria-label="Web">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="12" cy="12" r="9"></circle>
+                                <path d="M3 12h18"></path>
+                                <path d="M12 3a15 15 0 0 1 0 18"></path>
+                                <path d="M12 3a15 15 0 0 0 0 18"></path>
+                            </svg>
+                            <span>Web</span>
+                        </span>
                     </a>
                 </div>
 
@@ -1338,14 +1509,29 @@ Perubahan jam result tanggal 25 Oktober 2026.
             <div class="links">
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://tnlottery.com/winning-numbers/cash4" target="_blank">
-                        TENNESSE MID (SENIN LIBUR)
+                    <a class="item-link-with-badge" href="https://tnlottery.com/winning-numbers/cash4" target="_blank">
+                        <span class="item-label">TENNESSE MID (SENIN LIBUR)</span>
+                        <span class="logo-badge web-badge" aria-label="Web">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="12" cy="12" r="9"></circle>
+                                <path d="M3 12h18"></path>
+                                <path d="M12 3a15 15 0 0 1 0 18"></path>
+                                <path d="M12 3a15 15 0 0 0 0 18"></path>
+                            </svg>
+                            <span>Web</span>
+                        </span>
                     </a>
                 </div>
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://www.youtube.com/@tnlottery/videos" target="_blank">
-                        TENNESSE MID YOUTUBE (SENIN LIBUR)
+                    <a class="item-link-with-badge" href="https://www.youtube.com/@tnlottery/videos" target="_blank">
+                        <span class="item-label">TENNESSE MID YOUTUBE (SENIN LIBUR)</span>
+                        <span class="logo-badge youtube-badge" aria-label="YouTube">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.5 31.5 0 0 0 0 12a31.5 31.5 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.5 31.5 0 0 0 24 12a31.5 31.5 0 0 0-.5-5.8ZM9.6 15.7V8.3l6.4 3.7-6.4 3.7Z"/>
+                            </svg>
+                            <span>YouTube</span>
+                        </span>
                     </a>
                 </div>
 
@@ -1380,14 +1566,29 @@ Perubahan jam result tanggal 25 Oktober 2026.
             <div class="links">
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://hoosierlottery.com/games/draw/daily-4" target="_blank">
-                        INDIANA MID
+                    <a class="item-link-with-badge" href="https://hoosierlottery.com/games/draw/daily-4" target="_blank">
+                        <span class="item-label">INDIANA MID</span>
+                        <span class="logo-badge web-badge" aria-label="Web">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="12" cy="12" r="9"></circle>
+                                <path d="M3 12h18"></path>
+                                <path d="M12 3a15 15 0 0 1 0 18"></path>
+                                <path d="M12 3a15 15 0 0 0 0 18"></path>
+                            </svg>
+                            <span>Web</span>
+                        </span>
                     </a>
                 </div>
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://www.youtube.com/@thehoosierlottery/videos" target="_blank">
-                        INDIANA MID YOUTUBE
+                    <a class="item-link-with-badge" href="https://www.youtube.com/@thehoosierlottery/videos" target="_blank">
+                        <span class="item-label">INDIANA MID YOUTUBE</span>
+                        <span class="logo-badge youtube-badge" aria-label="YouTube">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.5 31.5 0 0 0 0 12a31.5 31.5 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.5 31.5 0 0 0 24 12a31.5 31.5 0 0 0-.5-5.8ZM9.6 15.7V8.3l6.4 3.7-6.4 3.7Z"/>
+                            </svg>
+                            <span>YouTube</span>
+                        </span>
                     </a>
                 </div>
 
@@ -1422,20 +1623,41 @@ Perubahan jam result tanggal 25 Oktober 2026.
             <div class="links">
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://www.texaslottery.com/export/sites/lottery/index.html" target="_blank">
-                        TEXAS DAY (SENIN LIBUR)
+                    <a class="item-link-with-badge" href="https://www.texaslottery.com/export/sites/lottery/index.html" target="_blank">
+                        <span class="item-label">TEXAS DAY (SENIN LIBUR)</span>
+                        <span class="logo-badge web-badge" aria-label="Website">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="12" cy="12" r="9"></circle>
+                                <path d="M3 12h18"></path>
+                                <path d="M12 3a15 15 0 0 1 0 18"></path>
+                                <path d="M12 3a15 15 0 0 0 0 18"></path>
+                            </svg>
+                            <span>Web</span>
+                        </span>
                     </a>
                 </div>
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://www.texaslottery.com/export/sites/lottery/Games/Web_Cast.html" target="_blank">
-                        TEXAS DAY LIVE (SENIN LIBUR)
+                    <a class="item-link-with-badge" href="https://www.texaslottery.com/export/sites/lottery/Games/Web_Cast.html" target="_blank">
+                        <span class="item-label">TEXAS DAY LIVE (SENIN LIBUR)</span>
+                        <span class="logo-badge live-badge" aria-label="Live">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M8 6a1 1 0 0 0-1.4 1.4A6 6 0 0 1 8.3 12a6 6 0 0 1-1.7 4.6A1 1 0 0 0 8 18a8 8 0 0 0 0-12Zm8 0a8 8 0 0 0 0 12 1 1 0 0 0 1.4-1.4A6 6 0 0 1 15.7 12a6 6 0 0 1 1.7-4.6A1 1 0 1 0 16 6Zm-4-1a7 7 0 1 0 0 14 7 7 0 0 0 0-14Zm0 5a2 2 0 1 1 0 4 2 2 0 0 1 0-4Z"/>
+                            </svg>
+                            <span>LIVE</span>
+                        </span>
                     </a>
                 </div>
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://www.youtube.com/@TheTexasLottery/videos" target="_blank">
-                        TEXAS DAY YOUTUBE (SENIN LIBUR)
+                    <a class="item-link-with-badge" href="https://www.youtube.com/@TheTexasLottery/videos" target="_blank">
+                        <span class="item-label">TEXAS DAY YOUTUBE (SENIN LIBUR)</span>
+                        <span class="logo-badge youtube-badge" aria-label="YouTube">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.5 31.5 0 0 0 0 12a31.5 31.5 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.5 31.5 0 0 0 24 12a31.5 31.5 0 0 0-.5-5.8ZM9.6 15.7V8.3l6.4 3.7-6.4 3.7Z"/>
+                            </svg>
+                            <span>YouTube</span>
+                        </span>
                     </a>
                 </div>
 
@@ -1470,8 +1692,17 @@ Perubahan jam result tanggal 25 Oktober 2026.
             <div class="links">
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://play.kylottery.com/en-us/playnow/pick4.html" target="_blank">
-                        KENTUCKY MID
+                    <a class="item-link-with-badge" href="https://play.kylottery.com/en-us/playnow/pick4.html" target="_blank">
+                        <span class="item-label">KENTUCKY MID</span>
+                        <span class="logo-badge web-badge" aria-label="Web">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="12" cy="12" r="9"></circle>
+                                <path d="M3 12h18"></path>
+                                <path d="M12 3a15 15 0 0 1 0 18"></path>
+                                <path d="M12 3a15 15 0 0 0 0 18"></path>
+                            </svg>
+                            <span>Web</span>
+                        </span>
                     </a>
                 </div>
 
@@ -1548,8 +1779,17 @@ Perubahan jam result tanggal 25 Oktober 2026.
             <div class="links">
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://www.palottery.pa.gov/Draw-Games/PICK-4.aspx" target="_blank">
-                        PENNSYLVANIA DAY
+                    <a class="item-link-with-badge" href="https://www.palottery.pa.gov/Draw-Games/PICK-4.aspx" target="_blank">
+                        <span class="item-label">PENNSYLVANIA DAY</span>
+                        <span class="logo-badge web-badge" aria-label="Web">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="12" cy="12" r="9"></circle>
+                                <path d="M3 12h18"></path>
+                                <path d="M12 3a15 15 0 0 1 0 18"></path>
+                                <path d="M12 3a15 15 0 0 0 0 18"></path>
+                            </svg>
+                            <span>Web</span>
+                        </span>
                     </a>
                 </div>
 
@@ -1584,14 +1824,29 @@ Perubahan jam result tanggal 25 Oktober 2026.
             <div class="links">
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://www.illinoislottery.com/dbg/results/pick4" target="_blank">
-                        ILLINOIS MID
+                    <a class="item-link-with-badge" href="https://www.illinoislottery.com/dbg/results/pick4" target="_blank">
+                        <span class="item-label">ILLINOIS MID</span>
+                        <span class="logo-badge web-badge" aria-label="Web">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="12" cy="12" r="9"></circle>
+                                <path d="M3 12h18"></path>
+                                <path d="M12 3a15 15 0 0 1 0 18"></path>
+                                <path d="M12 3a15 15 0 0 0 0 18"></path>
+                            </svg>
+                            <span>Web</span>
+                        </span>
                     </a>
                 </div>
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://www.youtube.com/@illinoislottery/videos" target="_blank">
-                        ILLINOIS MID YOUTUBE
+                    <a class="item-link-with-badge" href="https://www.youtube.com/@illinoislottery/videos" target="_blank">
+                        <span class="item-label">ILLINOIS MID YOUTUBE</span>
+                        <span class="logo-badge youtube-badge" aria-label="YouTube">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.5 31.5 0 0 0 0 12a31.5 31.5 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.5 31.5 0 0 0 24 12a31.5 31.5 0 0 0-.5-5.8ZM9.6 15.7V8.3l6.4 3.7-6.4 3.7Z"/>
+                            </svg>
+                            <span>YouTube</span>
+                        </span>
                     </a>
                 </div>
 
@@ -1626,8 +1881,17 @@ Perubahan jam result tanggal 25 Oktober 2026.
             <div class="links">
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://www.molottery.com/pick4/winning-numbers" target="_blank">
-                        MISSOURI MID
+                    <a class="item-link-with-badge" href="https://www.molottery.com/pick4/winning-numbers" target="_blank">
+                        <span class="item-label">MISSOURI MID</span>
+                        <span class="logo-badge web-badge" aria-label="Web">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="12" cy="12" r="9"></circle>
+                                <path d="M3 12h18"></path>
+                                <path d="M12 3a15 15 0 0 1 0 18"></path>
+                                <path d="M12 3a15 15 0 0 0 0 18"></path>
+                            </svg>
+                            <span>Web</span>
+                        </span>
                     </a>
                 </div>
 
@@ -1662,14 +1926,33 @@ Perubahan jam result tanggal 25 Oktober 2026.
             <div class="links">
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://www.valottery.com/data/draw-games/pick4" target="_blank">
-                        VIRGINIA DAY
+                    <a class="item-link-with-badge" href="https://www.valottery.com/data/draw-games/pick4" target="_blank">
+                        <span class="item-label">VIRGINIA DAY</span>
+                        <span class="logo-badge web-badge" aria-label="Web">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="12" cy="12" r="9"></circle>
+                                <path d="M3 12h18"></path>
+                                <path d="M12 3a15 15 0 0 1 0 18"></path>
+                                <path d="M12 3a15 15 0 0 0 0 18"></path>
+                            </svg>
+                            <span>Web</span>
+                        </span>
                     </a>
                 </div>
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://www.valottery.com/scratcher-search" target="_blank">
-                        VIRGINIA DAY LIVE
+                    <a class="item-link-with-badge" href="https://www.valottery.com/scratcher-search" target="_blank">
+                        <span class="item-label">VIRGINIA DAY LIVE</span>
+                        <span class="logo-badge live-badge" aria-label="LIVE">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="12" cy="12" r="2.5"></circle>
+                                <path d="M7.5 7.5a6.4 6.4 0 0 0 0 9"></path>
+                                <path d="M16.5 7.5a6.4 6.4 0 0 1 0 9"></path>
+                                <path d="M4.2 4.2a11 11 0 0 0 0 15.6"></path>
+                                <path d="M19.8 4.2a11 11 0 0 1 0 15.6"></path>
+                            </svg>
+                            <span>LIVE</span>
+                        </span>
                     </a>
                 </div>
 
@@ -1704,8 +1987,17 @@ Perubahan jam result tanggal 25 Oktober 2026.
             <div class="links">
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://www.myarkansaslottery.com/games/cash-4" target="_blank">
-                        ARKANSAS MID (SENIN LIBUR)
+                    <a class="item-link-with-badge" href="https://www.myarkansaslottery.com/games/cash-4" target="_blank">
+                        <span class="item-label">ARKANSAS MID (SENIN LIBUR)</span>
+                        <span class="logo-badge web-badge" aria-label="Web">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="12" cy="12" r="9"></circle>
+                                <path d="M3 12h18"></path>
+                                <path d="M12 3a15 15 0 0 1 0 18"></path>
+                                <path d="M12 3a15 15 0 0 0 0 18"></path>
+                            </svg>
+                            <span>Web</span>
+                        </span>
                     </a>
                 </div>
 
@@ -1740,14 +2032,29 @@ Perubahan jam result tanggal 25 Oktober 2026.
             <div class="links">
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://nylottery.ny.gov/draw-game?game=win4" target="_blank">
-                        NEWYORK MID
+                    <a class="item-link-with-badge" href="https://nylottery.ny.gov/draw-game?game=win4" target="_blank">
+                        <span class="item-label">NEWYORK MID</span>
+                        <span class="logo-badge web-badge" aria-label="Web">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="12" cy="12" r="9"></circle>
+                                <path d="M3 12h18"></path>
+                                <path d="M12 3a15 15 0 0 1 0 18"></path>
+                                <path d="M12 3a15 15 0 0 0 0 18"></path>
+                            </svg>
+                            <span>Web</span>
+                        </span>
                     </a>
                 </div>
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://www.youtube.com/@NewYorkLottery/streams" target="_blank">
-                        NEWYORK MID YOUTUBE
+                    <a class="item-link-with-badge" href="https://www.youtube.com/@NewYorkLottery/streams" target="_blank">
+                        <span class="item-label">NEWYORK MID YOUTUBE</span>
+                        <span class="logo-badge youtube-badge" aria-label="YouTube">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.5 31.5 0 0 0 0 12a31.5 31.5 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.5 31.5 0 0 0 24 12a31.5 31.5 0 0 0-.5-5.8ZM9.6 15.7V8.3l6.4 3.7-6.4 3.7Z"/>
+                            </svg>
+                            <span>YouTube</span>
+                        </span>
                     </a>
                 </div>
 
@@ -1782,14 +2089,33 @@ Perubahan jam result tanggal 25 Oktober 2026.
             <div class="links">
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://nclottery.com/pick4" target="_blank">
-                        NORTH CAROLINA DAY
+                    <a class="item-link-with-badge" href="https://nclottery.com/pick4" target="_blank">
+                        <span class="item-label">NORTH CAROLINA DAY</span>
+                        <span class="logo-badge web-badge" aria-label="Web">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="12" cy="12" r="9"></circle>
+                                <path d="M3 12h18"></path>
+                                <path d="M12 3a15 15 0 0 1 0 18"></path>
+                                <path d="M12 3a15 15 0 0 0 0 18"></path>
+                            </svg>
+                            <span>Web</span>
+                        </span>
                     </a>
                 </div>
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://www.wral.com/entertainment/lottery/video/2570000/#spark_wn=1" target="_blank">
-                        NORTH CAROLINA DAY LIVE
+                    <a class="item-link-with-badge" href="https://www.wral.com/entertainment/lottery/video/2570000/#spark_wn=1" target="_blank">
+                        <span class="item-label">NORTH CAROLINA DAY LIVE</span>
+                        <span class="logo-badge live-badge" aria-label="LIVE">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="12" cy="12" r="2.5"></circle>
+                                <path d="M7.5 7.5a6.4 6.4 0 0 0 0 9"></path>
+                                <path d="M16.5 7.5a6.4 6.4 0 0 1 0 9"></path>
+                                <path d="M4.2 4.2a11 11 0 0 0 0 15.6"></path>
+                                <path d="M19.8 4.2a11 11 0 0 1 0 15.6"></path>
+                            </svg>
+                            <span>LIVE</span>
+                        </span>
                     </a>
                 </div>
 
@@ -1824,8 +2150,17 @@ Perubahan jam result tanggal 25 Oktober 2026.
             <div class="links">
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://www.marokopools.org/" target="_blank">
-                        MAROKO POOLS
+                    <a class="item-link-with-badge" href="https://www.marokopools.org/" target="_blank">
+                        <span class="item-label">MAROKO POOLS</span>
+                        <span class="logo-badge web-badge" aria-label="Web">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="12" cy="12" r="9"></circle>
+                                <path d="M3 12h18"></path>
+                                <path d="M12 3a15 15 0 0 1 0 18"></path>
+                                <path d="M12 3a15 15 0 0 0 0 18"></path>
+                            </svg>
+                            <span>Web</span>
+                        </span>
                     </a>
                 </div>
 
@@ -1898,14 +2233,29 @@ Perubahan jam result tanggal 25 Oktober 2026.
             <div class="links">
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://www.palottery.pa.gov/Draw-Games/Watch-Drawings.aspx" target="_blank">
-                        PENNSYLVANIA EVENING
+                    <a class="item-link-with-badge" href="https://www.palottery.pa.gov/Draw-Games/Watch-Drawings.aspx" target="_blank">
+                        <span class="item-label">PENNSYLVANIA EVENING</span>
+                        <span class="logo-badge web-badge" aria-label="Web">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="12" cy="12" r="9"></circle>
+                                <path d="M3 12h18"></path>
+                                <path d="M12 3a15 15 0 0 1 0 18"></path>
+                                <path d="M12 3a15 15 0 0 0 0 18"></path>
+                            </svg>
+                            <span>Web</span>
+                        </span>
                     </a>
                 </div>
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://www.youtube.com/@palottery/streams" target="_blank">
-                        PENNSYLVANIA EVENING YOUTUBE
+                    <a class="item-link-with-badge" href="https://www.youtube.com/@palottery/streams" target="_blank">
+                        <span class="item-label">PENNSYLVANIA EVENING YOUTUBE</span>
+                        <span class="logo-badge youtube-badge" aria-label="YouTube">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.5 31.5 0 0 0 0 12a31.5 31.5 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.5 31.5 0 0 0 24 12a31.5 31.5 0 0 0-.5-5.8ZM9.6 15.7V8.3l6.4 3.7-6.4 3.7Z"/>
+                            </svg>
+                            <span>YouTube</span>
+                        </span>
                     </a>
                 </div>
 
@@ -1940,8 +2290,17 @@ Perubahan jam result tanggal 25 Oktober 2026.
             <div class="links">
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://www.tasmanialottery.com/" target="_blank">
-                        TASMANIA06
+                    <a class="item-link-with-badge" href="https://www.tasmanialottery.com/" target="_blank">
+                        <span class="item-label">TASMANIA06</span>
+                        <span class="logo-badge web-badge" aria-label="Web">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="12" cy="12" r="9"></circle>
+                                <path d="M3 12h18"></path>
+                                <path d="M12 3a15 15 0 0 1 0 18"></path>
+                                <path d="M12 3a15 15 0 0 0 0 18"></path>
+                            </svg>
+                            <span>Web</span>
+                        </span>
                     </a>
                 </div>
 
@@ -1978,8 +2337,17 @@ Perubahan jam result tanggal 25 Oktober 2026.
             <div class="links">
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://www.oregonlottery.org/pick-4/winning-numbers" target="_blank">
-                        OREGON06
+                    <a class="item-link-with-badge" href="https://www.oregonlottery.org/pick-4/winning-numbers" target="_blank">
+                        <span class="item-label">OREGON06</span>
+                        <span class="logo-badge web-badge" aria-label="Web">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="12" cy="12" r="9"></circle>
+                                <path d="M3 12h18"></path>
+                                <path d="M12 3a15 15 0 0 1 0 18"></path>
+                                <path d="M12 3a15 15 0 0 0 0 18"></path>
+                            </svg>
+                            <span>Web</span>
+                        </span>
                     </a>
                 </div>
 
@@ -2014,20 +2382,45 @@ Perubahan jam result tanggal 25 Oktober 2026.
             <div class="links">
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://www.texaslottery.com/export/sites/lottery/index.html" target="_blank">
-                        TEXAS EVENING (SENIN LIBUR)
+                    <a class="item-link-with-badge" href="https://www.texaslottery.com/export/sites/lottery/index.html" target="_blank">
+                        <span class="item-label">TEXAS EVENING (SENIN LIBUR)</span>
+                        <span class="logo-badge web-badge" aria-label="Web">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="12" cy="12" r="9"></circle>
+                                <path d="M3 12h18"></path>
+                                <path d="M12 3a15 15 0 0 1 0 18"></path>
+                                <path d="M12 3a15 15 0 0 0 0 18"></path>
+                            </svg>
+                            <span>Web</span>
+                        </span>
                     </a>
                 </div>
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://www.texaslottery.com/export/sites/lottery/Games/Web_Cast.html" target="_blank">
-                        TEXAS EVENING LIVE (SENIN LIBUR)
+                    <a class="item-link-with-badge" href="https://www.texaslottery.com/export/sites/lottery/Games/Web_Cast.html" target="_blank">
+                        <span class="item-label">TEXAS EVENING LIVE (SENIN LIBUR)</span>
+                        <span class="logo-badge live-badge" aria-label="LIVE">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="12" cy="12" r="2.5"></circle>
+                                <path d="M7.5 7.5a6.4 6.4 0 0 0 0 9"></path>
+                                <path d="M16.5 7.5a6.4 6.4 0 0 1 0 9"></path>
+                                <path d="M4.2 4.2a11 11 0 0 0 0 15.6"></path>
+                                <path d="M19.8 4.2a11 11 0 0 1 0 15.6"></path>
+                            </svg>
+                            <span>LIVE</span>
+                        </span>
                     </a>
                 </div>
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://www.youtube.com/@TheTexasLottery/videos" target="_blank">
-                        TEXAS EVENING YOUTUBE (SENIN LIBUR)
+                    <a class="item-link-with-badge" href="https://www.youtube.com/@TheTexasLottery/videos" target="_blank">
+                        <span class="item-label">TEXAS EVENING YOUTUBE (SENIN LIBUR)</span>
+                        <span class="logo-badge youtube-badge" aria-label="YouTube">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.5 31.5 0 0 0 0 12a31.5 31.5 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.5 31.5 0 0 0 24 12a31.5 31.5 0 0 0-.5-5.8ZM9.6 15.7V8.3l6.4 3.7-6.4 3.7Z"/>
+                            </svg>
+                            <span>YouTube</span>
+                        </span>
                     </a>
                 </div>
 
@@ -2062,14 +2455,33 @@ Perubahan jam result tanggal 25 Oktober 2026.
             <div class="links">
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://www.galottery.com/en-us/games/draw-games/cash-four.html#tab-winningNumbers" target="_blank">
-                        GEORGIA EVENING
+                    <a class="item-link-with-badge" href="https://www.galottery.com/en-us/games/draw-games/cash-four.html#tab-winningNumbers" target="_blank">
+                        <span class="item-label">GEORGIA EVENING</span>
+                        <span class="logo-badge web-badge" aria-label="Web">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="12" cy="12" r="9"></circle>
+                                <path d="M3 12h18"></path>
+                                <path d="M12 3a15 15 0 0 1 0 18"></path>
+                                <path d="M12 3a15 15 0 0 0 0 18"></path>
+                            </svg>
+                            <span>Web</span>
+                        </span>
                     </a>
                 </div>
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://www.wsbtv.com/lottery/" target="_blank">
-                        GEORGIA EVENING LIVE
+                    <a class="item-link-with-badge" href="https://www.wsbtv.com/lottery/" target="_blank">
+                        <span class="item-label">GEORGIA EVENING LIVE</span>
+                        <span class="logo-badge live-badge" aria-label="LIVE">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="12" cy="12" r="2.5"></circle>
+                                <path d="M7.5 7.5a6.4 6.4 0 0 0 0 9"></path>
+                                <path d="M16.5 7.5a6.4 6.4 0 0 1 0 9"></path>
+                                <path d="M4.2 4.2a11 11 0 0 0 0 15.6"></path>
+                                <path d="M19.8 4.2a11 11 0 0 1 0 15.6"></path>
+                            </svg>
+                            <span>LIVE</span>
+                        </span>
                     </a>
                 </div>
 
@@ -2146,14 +2558,29 @@ Perubahan jam result tanggal 25 Oktober 2026.
             <div class="links">
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://www.rilot.com/en-us/winning-numbers/the-numbers.html" target="_blank">
-                        RHODE EVENING
+                    <a class="item-link-with-badge" href="https://www.rilot.com/en-us/winning-numbers/the-numbers.html" target="_blank">
+                        <span class="item-label">RHODE EVENING</span>
+                        <span class="logo-badge web-badge" aria-label="Web">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="12" cy="12" r="9"></circle>
+                                <path d="M3 12h18"></path>
+                                <path d="M12 3a15 15 0 0 1 0 18"></path>
+                                <path d="M12 3a15 15 0 0 0 0 18"></path>
+                            </svg>
+                            <span>Web</span>
+                        </span>
                     </a>
                 </div>
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://www.youtube.com/@RILottery/videos" target="_blank">
-                        RHODE EVENING YOUTUBE
+                    <a class="item-link-with-badge" href="https://www.youtube.com/@RILottery/videos" target="_blank">
+                        <span class="item-label">RHODE EVENING YOUTUBE</span>
+                        <span class="logo-badge youtube-badge" aria-label="YouTube">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.5 31.5 0 0 0 0 12a31.5 31.5 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.5 31.5 0 0 0 24 12a31.5 31.5 0 0 0-.5-5.8ZM9.6 15.7V8.3l6.4 3.7-6.4 3.7Z"/>
+                            </svg>
+                            <span>YouTube</span>
+                        </span>
                     </a>
                 </div>
 
@@ -2188,14 +2615,29 @@ Perubahan jam result tanggal 25 Oktober 2026.
             <div class="links">
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://www.ohiolottery.com/home" target="_blank">
-                        OHIO EVENING
+                    <a class="item-link-with-badge" href="https://www.ohiolottery.com/home" target="_blank">
+                        <span class="item-label">OHIO EVENING</span>
+                        <span class="logo-badge web-badge" aria-label="Web">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="12" cy="12" r="9"></circle>
+                                <path d="M3 12h18"></path>
+                                <path d="M12 3a15 15 0 0 1 0 18"></path>
+                                <path d="M12 3a15 15 0 0 0 0 18"></path>
+                            </svg>
+                            <span>Web</span>
+                        </span>
                     </a>
                 </div>
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://www.youtube.com/@OHdailydraws/videos" target="_blank">
-                        OHIO EVENING YOUTUBE
+                    <a class="item-link-with-badge" href="https://www.youtube.com/@OHdailydraws/videos" target="_blank">
+                        <span class="item-label">OHIO EVENING YOUTUBE</span>
+                        <span class="logo-badge youtube-badge" aria-label="YouTube">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.5 31.5 0 0 0 0 12a31.5 31.5 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.5 31.5 0 0 0 24 12a31.5 31.5 0 0 0-.5-5.8ZM9.6 15.7V8.3l6.4 3.7-6.4 3.7Z"/>
+                            </svg>
+                            <span>YouTube</span>
+                        </span>
                     </a>
                 </div>
 
@@ -2230,8 +2672,17 @@ Perubahan jam result tanggal 25 Oktober 2026.
             <div class="links">
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://chicagolottery.vip/" target="_blank">
-                        CHICAGO NIGHT
+                    <a class="item-link-with-badge" href="https://chicagolottery.vip/" target="_blank">
+                        <span class="item-label">CHICAGO NIGHT</span>
+                        <span class="logo-badge web-badge" aria-label="Web">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="12" cy="12" r="9"></circle>
+                                <path d="M3 12h18"></path>
+                                <path d="M12 3a15 15 0 0 1 0 18"></path>
+                                <path d="M12 3a15 15 0 0 0 0 18"></path>
+                            </svg>
+                            <span>Web</span>
+                        </span>
                     </a>
                 </div>
 
@@ -2268,14 +2719,29 @@ Perubahan jam result tanggal 25 Oktober 2026.
             <div class="links">
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://www.mdlottery.com/player-tools/winning-numbers/#pick-3-4-5" target="_blank">
-                        MARYLAND EVENING
+                    <a class="item-link-with-badge" href="https://www.mdlottery.com/player-tools/winning-numbers/#pick-3-4-5" target="_blank">
+                        <span class="item-label">MARYLAND EVENING</span>
+                        <span class="logo-badge web-badge" aria-label="Web">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="12" cy="12" r="9"></circle>
+                                <path d="M3 12h18"></path>
+                                <path d="M12 3a15 15 0 0 1 0 18"></path>
+                                <path d="M12 3a15 15 0 0 0 0 18"></path>
+                            </svg>
+                            <span>Web</span>
+                        </span>
                     </a>
                 </div>
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://www.youtube.com/@mdlottery/videos" target="_blank">
-                        MARYLAND EVENING YOUTUBE
+                    <a class="item-link-with-badge" href="https://www.youtube.com/@mdlottery/videos" target="_blank">
+                        <span class="item-label">MARYLAND EVENING YOUTUBE</span>
+                        <span class="logo-badge youtube-badge" aria-label="YouTube">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.5 31.5 0 0 0 0 12a31.5 31.5 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.5 31.5 0 0 0 24 12a31.5 31.5 0 0 0-.5-5.8ZM9.6 15.7V8.3l6.4 3.7-6.4 3.7Z"/>
+                            </svg>
+                            <span>YouTube</span>
+                        </span>
                     </a>
                 </div>
 
@@ -2310,8 +2776,17 @@ Perubahan jam result tanggal 25 Oktober 2026.
             <div class="links">
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://www.myarkansaslottery.com/games/cash-4" target="_blank">
-                        ARKANSAS EVENING
+                    <a class="item-link-with-badge" href="https://www.myarkansaslottery.com/games/cash-4" target="_blank">
+                        <span class="item-label">ARKANSAS EVENING</span>
+                        <span class="logo-badge web-badge" aria-label="Web">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="12" cy="12" r="9"></circle>
+                                <path d="M3 12h18"></path>
+                                <path d="M12 3a15 15 0 0 1 0 18"></path>
+                                <path d="M12 3a15 15 0 0 0 0 18"></path>
+                            </svg>
+                            <span>Web</span>
+                        </span>
                     </a>
                 </div>
 
@@ -2346,8 +2821,17 @@ Perubahan jam result tanggal 25 Oktober 2026.
             <div class="links">
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://www.calottery.com/en/draw-games/daily-4#section-content-2-4" target="_blank">
-                        CALIFORNIA
+                    <a class="item-link-with-badge" href="https://www.calottery.com/en/draw-games/daily-4#section-content-2-4" target="_blank">
+                        <span class="item-label">CALIFORNIA</span>
+                        <span class="logo-badge web-badge" aria-label="Web">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="12" cy="12" r="9"></circle>
+                                <path d="M3 12h18"></path>
+                                <path d="M12 3a15 15 0 0 1 0 18"></path>
+                                <path d="M12 3a15 15 0 0 0 0 18"></path>
+                            </svg>
+                            <span>Web</span>
+                        </span>
                     </a>
                 </div>
 
@@ -2382,14 +2866,29 @@ Perubahan jam result tanggal 25 Oktober 2026.
             <div class="links">
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://floridalottery.com/games/draw-games/pick-4" target="_blank">
-                        FLORIDA EVENING
+                    <a class="item-link-with-badge" href="https://floridalottery.com/games/draw-games/pick-4" target="_blank">
+                        <span class="item-label">FLORIDA EVENING</span>
+                        <span class="logo-badge web-badge" aria-label="Web">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="12" cy="12" r="9"></circle>
+                                <path d="M3 12h18"></path>
+                                <path d="M12 3a15 15 0 0 1 0 18"></path>
+                                <path d="M12 3a15 15 0 0 0 0 18"></path>
+                            </svg>
+                            <span>Web</span>
+                        </span>
                     </a>
                 </div>
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://www.youtube.com/@floridalottery/videos" target="_blank">
-                        FLORIDA EVENING YOUTUBE
+                    <a class="item-link-with-badge" href="https://www.youtube.com/@floridalottery/videos" target="_blank">
+                        <span class="item-label">FLORIDA EVENING YOUTUBE</span>
+                        <span class="logo-badge youtube-badge" aria-label="YouTube">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.5 31.5 0 0 0 0 12a31.5 31.5 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.5 31.5 0 0 0 24 12a31.5 31.5 0 0 0-.5-5.8ZM9.6 15.7V8.3l6.4 3.7-6.4 3.7Z"/>
+                            </svg>
+                            <span>YouTube</span>
+                        </span>
                     </a>
                 </div>
 
@@ -2424,8 +2923,17 @@ Perubahan jam result tanggal 25 Oktober 2026.
             <div class="links">
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://www.oregonlottery.org/pick-4/winning-numbers" target="_blank">
-                        OREGON09
+                    <a class="item-link-with-badge" href="https://www.oregonlottery.org/pick-4/winning-numbers" target="_blank">
+                        <span class="item-label">OREGON09</span>
+                        <span class="logo-badge web-badge" aria-label="Web">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="12" cy="12" r="9"></circle>
+                                <path d="M3 12h18"></path>
+                                <path d="M12 3a15 15 0 0 1 0 18"></path>
+                                <path d="M12 3a15 15 0 0 0 0 18"></path>
+                            </svg>
+                            <span>Web</span>
+                        </span>
                     </a>
                 </div>
 
@@ -2460,8 +2968,17 @@ Perubahan jam result tanggal 25 Oktober 2026.
             <div class="links">
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://www.molottery.com/pick4/winning-numbers" target="_blank">
-                        MISSOURI EVENING
+                    <a class="item-link-with-badge" href="https://www.molottery.com/pick4/winning-numbers" target="_blank">
+                        <span class="item-label">MISSOURI EVENING</span>
+                        <span class="logo-badge web-badge" aria-label="Web">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="12" cy="12" r="9"></circle>
+                                <path d="M3 12h18"></path>
+                                <path d="M12 3a15 15 0 0 1 0 18"></path>
+                                <path d="M12 3a15 15 0 0 0 0 18"></path>
+                            </svg>
+                            <span>Web</span>
+                        </span>
                     </a>
                 </div>
 
@@ -2496,14 +3013,29 @@ Perubahan jam result tanggal 25 Oktober 2026.
             <div class="links">
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://nylottery.ny.gov/draw-game?game=win4" target="_blank">
-                        NEWYORK EVENING
+                    <a class="item-link-with-badge" href="https://nylottery.ny.gov/draw-game?game=win4" target="_blank">
+                        <span class="item-label">NEWYORK EVENING</span>
+                        <span class="logo-badge web-badge" aria-label="Web">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="12" cy="12" r="9"></circle>
+                                <path d="M3 12h18"></path>
+                                <path d="M12 3a15 15 0 0 1 0 18"></path>
+                                <path d="M12 3a15 15 0 0 0 0 18"></path>
+                            </svg>
+                            <span>Web</span>
+                        </span>
                     </a>
                 </div>
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://www.youtube.com/@NewYorkLottery/streams" target="_blank">
-                        NEWYORK EVENING YOUTUBE
+                    <a class="item-link-with-badge" href="https://www.youtube.com/@NewYorkLottery/streams" target="_blank">
+                        <span class="item-label">NEWYORK EVENING YOUTUBE</span>
+                        <span class="logo-badge youtube-badge" aria-label="YouTube">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.5 31.5 0 0 0 0 12a31.5 31.5 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.5 31.5 0 0 0 24 12a31.5 31.5 0 0 0-.5-5.8ZM9.6 15.7V8.3l6.4 3.7-6.4 3.7Z"/>
+                            </svg>
+                            <span>YouTube</span>
+                        </span>
                     </a>
                 </div>
 
@@ -2538,14 +3070,29 @@ Perubahan jam result tanggal 25 Oktober 2026.
             <div class="links">
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://www.illinoislottery.com/dbg/results/pick4" target="_blank">
-                        ILLINOIS EVENING
+                    <a class="item-link-with-badge" href="https://www.illinoislottery.com/dbg/results/pick4" target="_blank">
+                        <span class="item-label">ILLINOIS EVENING</span>
+                        <span class="logo-badge web-badge" aria-label="Web">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="12" cy="12" r="9"></circle>
+                                <path d="M3 12h18"></path>
+                                <path d="M12 3a15 15 0 0 1 0 18"></path>
+                                <path d="M12 3a15 15 0 0 0 0 18"></path>
+                            </svg>
+                            <span>Web</span>
+                        </span>
                     </a>
                 </div>
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://www.youtube.com/@illinoislottery/videos" target="_blank">
-                        ILLINOIS EVENING YOUTUBE
+                    <a class="item-link-with-badge" href="https://www.youtube.com/@illinoislottery/videos" target="_blank">
+                        <span class="item-label">ILLINOIS EVENING YOUTUBE</span>
+                        <span class="logo-badge youtube-badge" aria-label="YouTube">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.5 31.5 0 0 0 0 12a31.5 31.5 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.5 31.5 0 0 0 24 12a31.5 31.5 0 0 0-.5-5.8ZM9.6 15.7V8.3l6.4 3.7-6.4 3.7Z"/>
+                            </svg>
+                            <span>YouTube</span>
+                        </span>
                     </a>
                 </div>
 
@@ -2580,14 +3127,29 @@ Perubahan jam result tanggal 25 Oktober 2026.
             <div class="links">
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://www.njlottery.com/en-us/drawgames/pick4.html" target="_blank">
-                        NEWJERSEY EVENING
+                    <a class="item-link-with-badge" href="https://www.njlottery.com/en-us/drawgames/pick4.html" target="_blank">
+                        <span class="item-label">NEWJERSEY EVENING</span>
+                        <span class="logo-badge web-badge" aria-label="Web">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="12" cy="12" r="9"></circle>
+                                <path d="M3 12h18"></path>
+                                <path d="M12 3a15 15 0 0 1 0 18"></path>
+                                <path d="M12 3a15 15 0 0 0 0 18"></path>
+                            </svg>
+                            <span>Web</span>
+                        </span>
                     </a>
                 </div>
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://www.youtube.com/@newjerseylottery/streams" target="_blank">
-                        NEWJERSEY EVENING YOUTUBE
+                    <a class="item-link-with-badge" href="https://www.youtube.com/@newjerseylottery/streams" target="_blank">
+                        <span class="item-label">NEWJERSEY EVENING YOUTUBE</span>
+                        <span class="logo-badge youtube-badge" aria-label="YouTube">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.5 31.5 0 0 0 0 12a31.5 31.5 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.5 31.5 0 0 0 24 12a31.5 31.5 0 0 0-.5-5.8ZM9.6 15.7V8.3l6.4 3.7-6.4 3.7Z"/>
+                            </svg>
+                            <span>YouTube</span>
+                        </span>
                     </a>
                 </div>
 
@@ -2622,14 +3184,33 @@ Perubahan jam result tanggal 25 Oktober 2026.
             <div class="links">
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://www.valottery.com/data/draw-games/pick4" target="_blank">
-                        VIRGINIA NIGHT
+                    <a class="item-link-with-badge" href="https://www.valottery.com/data/draw-games/pick4" target="_blank">
+                        <span class="item-label">VIRGINIA NIGHT</span>
+                        <span class="logo-badge web-badge" aria-label="Web">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="12" cy="12" r="9"></circle>
+                                <path d="M3 12h18"></path>
+                                <path d="M12 3a15 15 0 0 1 0 18"></path>
+                                <path d="M12 3a15 15 0 0 0 0 18"></path>
+                            </svg>
+                            <span>Web</span>
+                        </span>
                     </a>
                 </div>
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://www.valottery.com/scratcher-search" target="_blank">
-                        VIRGINIA NIGHT LIVE
+                    <a class="item-link-with-badge" href="https://www.valottery.com/scratcher-search" target="_blank">
+                        <span class="item-label">VIRGINIA NIGHT LIVE</span>
+                        <span class="logo-badge live-badge" aria-label="LIVE">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="12" cy="12" r="2.5"></circle>
+                                <path d="M7.5 7.5a6.4 6.4 0 0 0 0 9"></path>
+                                <path d="M16.5 7.5a6.4 6.4 0 0 1 0 9"></path>
+                                <path d="M4.2 4.2a11 11 0 0 0 0 15.6"></path>
+                                <path d="M19.8 4.2a11 11 0 0 1 0 15.6"></path>
+                            </svg>
+                            <span>LIVE</span>
+                        </span>
                     </a>
                 </div>
 
@@ -2664,8 +3245,17 @@ Perubahan jam result tanggal 25 Oktober 2026.
             <div class="links">
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://www.tasmanialottery.com/" target="_blank">
-                        TASMANIA10
+                    <a class="item-link-with-badge" href="https://www.tasmanialottery.com/" target="_blank">
+                        <span class="item-label">TASMANIA10</span>
+                        <span class="logo-badge web-badge" aria-label="Web">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="12" cy="12" r="9"></circle>
+                                <path d="M3 12h18"></path>
+                                <path d="M12 3a15 15 0 0 1 0 18"></path>
+                                <path d="M12 3a15 15 0 0 0 0 18"></path>
+                            </svg>
+                            <span>Web</span>
+                        </span>
                     </a>
                 </div>
 
@@ -2702,8 +3292,17 @@ Perubahan jam result tanggal 25 Oktober 2026.
             <div class="links">
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://play.kylottery.com/en-us/playnow/pick4.html" target="_blank">
-                        KENTUCKY EVENING
+                    <a class="item-link-with-badge" href="https://play.kylottery.com/en-us/playnow/pick4.html" target="_blank">
+                        <span class="item-label">KENTUCKY EVENING</span>
+                        <span class="logo-badge web-badge" aria-label="Web">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="12" cy="12" r="9"></circle>
+                                <path d="M3 12h18"></path>
+                                <path d="M12 3a15 15 0 0 1 0 18"></path>
+                                <path d="M12 3a15 15 0 0 0 0 18"></path>
+                            </svg>
+                            <span>Web</span>
+                        </span>
                     </a>
                 </div>
 
@@ -2738,14 +3337,29 @@ Perubahan jam result tanggal 25 Oktober 2026.
             <div class="links">
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://hoosierlottery.com/games/draw/daily-4" target="_blank">
-                        INDIANA EVENING
+                    <a class="item-link-with-badge" href="https://hoosierlottery.com/games/draw/daily-4" target="_blank">
+                        <span class="item-label">INDIANA EVENING</span>
+                        <span class="logo-badge web-badge" aria-label="Web">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="12" cy="12" r="9"></circle>
+                                <path d="M3 12h18"></path>
+                                <path d="M12 3a15 15 0 0 1 0 18"></path>
+                                <path d="M12 3a15 15 0 0 0 0 18"></path>
+                            </svg>
+                            <span>Web</span>
+                        </span>
                     </a>
                 </div>
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://www.youtube.com/@thehoosierlottery/videos" target="_blank">
-                        INDIANA EVENING YOUTUBE
+                    <a class="item-link-with-badge" href="https://www.youtube.com/@thehoosierlottery/videos" target="_blank">
+                        <span class="item-label">INDIANA EVENING YOUTUBE</span>
+                        <span class="logo-badge youtube-badge" aria-label="YouTube">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.5 31.5 0 0 0 0 12a31.5 31.5 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.5 31.5 0 0 0 24 12a31.5 31.5 0 0 0-.5-5.8ZM9.6 15.7V8.3l6.4 3.7-6.4 3.7Z"/>
+                            </svg>
+                            <span>YouTube</span>
+                        </span>
                     </a>
                 </div>
 
@@ -2780,20 +3394,45 @@ Perubahan jam result tanggal 25 Oktober 2026.
             <div class="links">
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://www.texaslottery.com/export/sites/lottery/index.html" target="_blank">
-                        TEXAS NIGHT (SENIN LIBUR)
+                    <a class="item-link-with-badge" href="https://www.texaslottery.com/export/sites/lottery/index.html" target="_blank">
+                        <span class="item-label">TEXAS NIGHT (SENIN LIBUR)</span>
+                        <span class="logo-badge web-badge" aria-label="Web">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="12" cy="12" r="9"></circle>
+                                <path d="M3 12h18"></path>
+                                <path d="M12 3a15 15 0 0 1 0 18"></path>
+                                <path d="M12 3a15 15 0 0 0 0 18"></path>
+                            </svg>
+                            <span>Web</span>
+                        </span>
                     </a>
                 </div>
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://www.texaslottery.com/export/sites/lottery/Games/Web_Cast.html" target="_blank">
-                        TEXAS NIGHT LIVE (SENIN LIBUR)
+                    <a class="item-link-with-badge" href="https://www.texaslottery.com/export/sites/lottery/Games/Web_Cast.html" target="_blank">
+                        <span class="item-label">TEXAS NIGHT LIVE (SENIN LIBUR)</span>
+                        <span class="logo-badge live-badge" aria-label="LIVE">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="12" cy="12" r="2.5"></circle>
+                                <path d="M7.5 7.5a6.4 6.4 0 0 0 0 9"></path>
+                                <path d="M16.5 7.5a6.4 6.4 0 0 1 0 9"></path>
+                                <path d="M4.2 4.2a11 11 0 0 0 0 15.6"></path>
+                                <path d="M19.8 4.2a11 11 0 0 1 0 15.6"></path>
+                            </svg>
+                            <span>LIVE</span>
+                        </span>
                     </a>
                 </div>
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://www.youtube.com/@TheTexasLottery/videos" target="_blank">
-                        TEXAS NIGHT YOUTUBE (SENIN LIBUR)
+                    <a class="item-link-with-badge" href="https://www.youtube.com/@TheTexasLottery/videos" target="_blank">
+                        <span class="item-label">TEXAS NIGHT YOUTUBE (SENIN LIBUR)</span>
+                        <span class="logo-badge youtube-badge" aria-label="YouTube">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.5 31.5 0 0 0 0 12a31.5 31.5 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.5 31.5 0 0 0 24 12a31.5 31.5 0 0 0-.5-5.8ZM9.6 15.7V8.3l6.4 3.7-6.4 3.7Z"/>
+                            </svg>
+                            <span>YouTube</span>
+                        </span>
                     </a>
                 </div>
 
@@ -2828,14 +3467,33 @@ Perubahan jam result tanggal 25 Oktober 2026.
             <div class="links">
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://nclottery.com/pick4" target="_blank">
-                        NORTH CAROLINA EVENING
+                    <a class="item-link-with-badge" href="https://nclottery.com/pick4" target="_blank">
+                        <span class="item-label">NORTH CAROLINA EVENING</span>
+                        <span class="logo-badge web-badge" aria-label="Web">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="12" cy="12" r="9"></circle>
+                                <path d="M3 12h18"></path>
+                                <path d="M12 3a15 15 0 0 1 0 18"></path>
+                                <path d="M12 3a15 15 0 0 0 0 18"></path>
+                            </svg>
+                            <span>Web</span>
+                        </span>
                     </a>
                 </div>
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://www.wral.com/entertainment/lottery/video/2570000/#spark\_wn=1" target="_blank">
-                        NORTH CAROLINA EVENING
+                    <a class="item-link-with-badge" href="https://www.wral.com/entertainment/lottery/video/2570000/#spark\_wn=1" target="_blank">
+                        <span class="item-label">NORTH CAROLINA EVENING</span>
+                        <span class="logo-badge live-badge" aria-label="LIVE">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="12" cy="12" r="2.5"></circle>
+                                <path d="M7.5 7.5a6.4 6.4 0 0 0 0 9"></path>
+                                <path d="M16.5 7.5a6.4 6.4 0 0 1 0 9"></path>
+                                <path d="M4.2 4.2a11 11 0 0 0 0 15.6"></path>
+                                <path d="M19.8 4.2a11 11 0 0 1 0 15.6"></path>
+                            </svg>
+                            <span>LIVE</span>
+                        </span>
                     </a>
                 </div>
 
@@ -2870,8 +3528,17 @@ Perubahan jam result tanggal 25 Oktober 2026.
             <div class="links">
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://www.nmlottery.com/games/pick-4-plus/" target="_blank">
-                        NEW MEXICO EVENING
+                    <a class="item-link-with-badge" href="https://www.nmlottery.com/games/pick-4-plus/" target="_blank">
+                        <span class="item-label">NEW MEXICO EVENING</span>
+                        <span class="logo-badge web-badge" aria-label="Web">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="12" cy="12" r="9"></circle>
+                                <path d="M3 12h18"></path>
+                                <path d="M12 3a15 15 0 0 1 0 18"></path>
+                                <path d="M12 3a15 15 0 0 0 0 18"></path>
+                            </svg>
+                            <span>Web</span>
+                        </span>
                     </a>
                 </div>
 
@@ -2906,14 +3573,33 @@ Perubahan jam result tanggal 25 Oktober 2026.
             <div class="links">
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://www.galottery.com/en-us/games/draw-games/cash-four.html#tab-winningNumbers" target="_blank">
-                        GEORGIA NIGHT
+                    <a class="item-link-with-badge" href="https://www.galottery.com/en-us/games/draw-games/cash-four.html#tab-winningNumbers" target="_blank">
+                        <span class="item-label">GEORGIA NIGHT</span>
+                        <span class="logo-badge web-badge" aria-label="Web">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="12" cy="12" r="9"></circle>
+                                <path d="M3 12h18"></path>
+                                <path d="M12 3a15 15 0 0 1 0 18"></path>
+                                <path d="M12 3a15 15 0 0 0 0 18"></path>
+                            </svg>
+                            <span>Web</span>
+                        </span>
                     </a>
                 </div>
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://www.wsbtv.com/lottery/" target="_blank">
-                        GEORGIA NIGHT LIVE
+                    <a class="item-link-with-badge" href="https://www.wsbtv.com/lottery/" target="_blank">
+                        <span class="item-label">GEORGIA NIGHT LIVE</span>
+                        <span class="logo-badge live-badge" aria-label="LIVE">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="12" cy="12" r="2.5"></circle>
+                                <path d="M7.5 7.5a6.4 6.4 0 0 0 0 9"></path>
+                                <path d="M16.5 7.5a6.4 6.4 0 0 1 0 9"></path>
+                                <path d="M4.2 4.2a11 11 0 0 0 0 15.6"></path>
+                                <path d="M19.8 4.2a11 11 0 0 1 0 15.6"></path>
+                            </svg>
+                            <span>LIVE</span>
+                        </span>
                     </a>
                 </div>
 
@@ -2948,8 +3634,17 @@ Perubahan jam result tanggal 25 Oktober 2026.
             <div class="links">
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://www.magnumcambodia.com" target="_blank">
-                        CAMBODIA
+                    <a class="item-link-with-badge" href="https://www.magnumcambodia.com" target="_blank">
+                        <span class="item-label">CAMBODIA</span>
+                        <span class="logo-badge web-badge" aria-label="Web">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="12" cy="12" r="9"></circle>
+                                <path d="M3 12h18"></path>
+                                <path d="M12 3a15 15 0 0 1 0 18"></path>
+                                <path d="M12 3a15 15 0 0 0 0 18"></path>
+                            </svg>
+                            <span>Web</span>
+                        </span>
                     </a>
                 </div>
 
@@ -2986,8 +3681,17 @@ Perubahan jam result tanggal 25 Oktober 2026.
             <div class="links">
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://www.nmlottery.com/games/pick-4-plus/" target="_blank">
-                        BULLSEYE
+                    <a class="item-link-with-badge" href="https://www.nmlottery.com/games/pick-4-plus/" target="_blank">
+                        <span class="item-label">BULLSEYE</span>
+                        <span class="logo-badge web-badge" aria-label="Web">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="12" cy="12" r="9"></circle>
+                                <path d="M3 12h18"></path>
+                                <path d="M12 3a15 15 0 0 1 0 18"></path>
+                                <path d="M12 3a15 15 0 0 0 0 18"></path>
+                            </svg>
+                            <span>Web</span>
+                        </span>
                     </a>
                 </div>
                 
@@ -3026,8 +3730,17 @@ Perubahan jam result tanggal 27 September 2026.
             <div class="links">
                 <div class="item">
                     <input type="checkbox">
-                    <a href="http://www.fujianlottery.com" target="_blank">
-                        FUJIAN12
+                    <a class="item-link-with-badge" href="http://www.fujianlottery.com" target="_blank">
+                        <span class="item-label">FUJIAN12</span>
+                        <span class="logo-badge web-badge" aria-label="Web">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="12" cy="12" r="9"></circle>
+                                <path d="M3 12h18"></path>
+                                <path d="M12 3a15 15 0 0 1 0 18"></path>
+                                <path d="M12 3a15 15 0 0 0 0 18"></path>
+                            </svg>
+                            <span>Web</span>
+                        </span>
                     </a>
                 </div>
 
@@ -3064,8 +3777,17 @@ Perubahan jam result tanggal 27 September 2026.
             <div class="links">
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://www.tasmanialottery.com/" target="_blank">
-                        TASMANIA13
+                    <a class="item-link-with-badge" href="https://www.tasmanialottery.com/" target="_blank">
+                        <span class="item-label">TASMANIA13</span>
+                        <span class="logo-badge web-badge" aria-label="Web">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="12" cy="12" r="9"></circle>
+                                <path d="M3 12h18"></path>
+                                <path d="M12 3a15 15 0 0 1 0 18"></path>
+                                <path d="M12 3a15 15 0 0 0 0 18"></path>
+                            </svg>
+                            <span>Web</span>
+                        </span>
                     </a>
                 </div>
 
@@ -3102,8 +3824,17 @@ Perubahan jam result tanggal 27 September 2026.
             <div class="links">
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://www.oregonlottery.org/pick-4/winning-numbers" target="\_blank">
-                        OREGON12
+                    <a class="item-link-with-badge" href="https://www.oregonlottery.org/pick-4/winning-numbers" target="\_blank">
+                        <span class="item-label">OREGON12</span>
+                        <span class="logo-badge web-badge" aria-label="Web">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="12" cy="12" r="9"></circle>
+                                <path d="M3 12h18"></path>
+                                <path d="M12 3a15 15 0 0 1 0 18"></path>
+                                <path d="M12 3a15 15 0 0 0 0 18"></path>
+                            </svg>
+                            <span>Web</span>
+                        </span>
                     </a>
                 </div>
 
@@ -3138,14 +3869,29 @@ Perubahan jam result tanggal 27 September 2026.
             <div class="links">
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://kick.com/live-ttm4d/videos" target="_blank">
-                        TOTO MACAU 4D 13.00 (KICK)
+                    <a class="item-link-with-badge" href="https://kick.com/live-ttm4d/videos" target="_blank">
+                        <span class="item-label">TOTO MACAU 4D 13.00 (KICK)</span>
+                        <span class="logo-badge kick-badge" aria-label="KICK">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M5 3h4v7.2L15.6 3H21l-7.3 8.1L21 21h-5.5L9 13.6V21H5z"/>
+                            </svg>
+                            <span>KICK</span>
+                        </span>
                     </a>
                 </div>
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://ttmpools.online/" target="_blank">
-                        TOTO MACAU 4D 13.00
+                    <a class="item-link-with-badge" href="https://ttmpools.online/" target="_blank">
+                        <span class="item-label">TOTO MACAU 4D 13.00</span>
+                        <span class="logo-badge web-badge" aria-label="Web">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="12" cy="12" r="9"></circle>
+                                <path d="M3 12h18"></path>
+                                <path d="M12 3a15 15 0 0 1 0 18"></path>
+                                <path d="M12 3a15 15 0 0 0 0 18"></path>
+                            </svg>
+                            <span>Web</span>
+                        </span>
                     </a>
                 </div>
 
@@ -3180,8 +3926,17 @@ Perubahan jam result tanggal 27 September 2026.
             <div class="links">
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://www.sydneypoolstoday.com/" target="_blank">
-                        SYDNEY POOLS
+                    <a class="item-link-with-badge" href="https://www.sydneypoolstoday.com/" target="_blank">
+                        <span class="item-label">SYDNEY POOLS</span>
+                        <span class="logo-badge web-badge" aria-label="Web">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="12" cy="12" r="9"></circle>
+                                <path d="M3 12h18"></path>
+                                <path d="M12 3a15 15 0 0 1 0 18"></path>
+                                <path d="M12 3a15 15 0 0 0 0 18"></path>
+                            </svg>
+                            <span>Web</span>
+                        </span>
                     </a>
                 </div>
 
@@ -3218,14 +3973,29 @@ Perubahan jam result tanggal 27 September 2026.
             <div class="links">
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://kick.com/sydney-lotto-officials" target="_blank">
-                        SYDNEY LOTTO (KICK)
+                    <a class="item-link-with-badge" href="https://kick.com/sydney-lotto-officials" target="_blank">
+                        <span class="item-label">SYDNEY LOTTO (KICK)</span>
+                        <span class="logo-badge kick-badge" aria-label="KICK">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M5 3h4v7.2L15.6 3H21l-7.3 8.1L21 21h-5.5L9 13.6V21H5z"/>
+                            </svg>
+                            <span>KICK</span>
+                        </span>
                     </a>
                 </div>
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://sydneylotto.com/" target="_blank">
-                        SYDNEY LOTTO
+                    <a class="item-link-with-badge" href="https://sydneylotto.com/" target="_blank">
+                        <span class="item-label">SYDNEY LOTTO</span>
+                        <span class="logo-badge web-badge" aria-label="Web">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="12" cy="12" r="9"></circle>
+                                <path d="M3 12h18"></path>
+                                <path d="M12 3a15 15 0 0 1 0 18"></path>
+                                <path d="M12 3a15 15 0 0 0 0 18"></path>
+                            </svg>
+                            <span>Web</span>
+                        </span>
                     </a>
                 </div>
 
@@ -3262,14 +4032,29 @@ Perubahan jam result tanggal 27 September 2026.
             <div class="links">
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://kick.com/studio-live-game" target="_blank">
-                        JAKARTA SIANG POOLS (KICK)
+                    <a class="item-link-with-badge" href="https://kick.com/studio-live-game" target="_blank">
+                        <span class="item-label">JAKARTA SIANG POOLS (KICK)</span>
+                        <span class="logo-badge kick-badge" aria-label="KICK">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M5 3h4v7.2L15.6 3H21l-7.3 8.1L21 21h-5.5L9 13.6V21H5z"/>
+                            </svg>
+                            <span>KICK</span>
+                        </span>
                     </a>
                 </div>
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://jkt-pools.online/" target="_blank">
-                        JAKARTA SIANG POOLS
+                    <a class="item-link-with-badge" href="https://jkt-pools.online/" target="_blank">
+                        <span class="item-label">JAKARTA SIANG POOLS</span>
+                        <span class="logo-badge web-badge" aria-label="Web">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="12" cy="12" r="9"></circle>
+                                <path d="M3 12h18"></path>
+                                <path d="M12 3a15 15 0 0 1 0 18"></path>
+                                <path d="M12 3a15 15 0 0 0 0 18"></path>
+                            </svg>
+                            <span>Web</span>
+                        </span>
                     </a>
                 </div>
 
@@ -3304,8 +4089,17 @@ Perubahan jam result tanggal 27 September 2026.
             <div class="links">
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://www.malaysialottery.net/result" target="_blank">
-                        MALAYSIA DAY
+                    <a class="item-link-with-badge" href="https://www.malaysialottery.net/result" target="_blank">
+                        <span class="item-label">MALAYSIA DAY</span>
+                        <span class="logo-badge web-badge" aria-label="Web">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="12" cy="12" r="9"></circle>
+                                <path d="M3 12h18"></path>
+                                <path d="M12 3a15 15 0 0 1 0 18"></path>
+                                <path d="M12 3a15 15 0 0 0 0 18"></path>
+                            </svg>
+                            <span>Web</span>
+                        </span>
                     </a>
                 </div>
 
@@ -3340,8 +4134,17 @@ Perubahan jam result tanggal 27 September 2026.
             <div class="links">
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://www.sydneypoolstoday.com/" target="_blank">
-                        LIBANON POOLS
+                    <a class="item-link-with-badge" href="https://www.sydneypoolstoday.com/" target="_blank">
+                        <span class="item-label">LIBANON POOLS</span>
+                        <span class="logo-badge web-badge" aria-label="Web">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="12" cy="12" r="9"></circle>
+                                <path d="M3 12h18"></path>
+                                <path d="M12 3a15 15 0 0 1 0 18"></path>
+                                <path d="M12 3a15 15 0 0 0 0 18"></path>
+                            </svg>
+                            <span>Web</span>
+                        </span>
                     </a>
                 </div>
 
@@ -3378,14 +4181,29 @@ Perubahan jam result tanggal 27 September 2026.
             <div class="links">
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://kick.com/studio-live-game" target="_blank">
-                        TOTO MACAU 5D (KICK)
+                    <a class="item-link-with-badge" href="https://kick.com/studio-live-game" target="_blank">
+                        <span class="item-label">TOTO MACAU 5D (KICK)</span>
+                        <span class="logo-badge kick-badge" aria-label="KICK">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M5 3h4v7.2L15.6 3H21l-7.3 8.1L21 21h-5.5L9 13.6V21H5z"/>
+                            </svg>
+                            <span>KICK</span>
+                        </span>
                     </a>
                 </div>
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://ttmpools.online/" target="_blank">
-                        TOTO MACAU 5D
+                    <a class="item-link-with-badge" href="https://ttmpools.online/" target="_blank">
+                        <span class="item-label">TOTO MACAU 5D</span>
+                        <span class="logo-badge web-badge" aria-label="Web">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="12" cy="12" r="9"></circle>
+                                <path d="M3 12h18"></path>
+                                <path d="M12 3a15 15 0 0 1 0 18"></path>
+                                <path d="M12 3a15 15 0 0 0 0 18"></path>
+                            </svg>
+                            <span>Web</span>
+                        </span>
                     </a>
                 </div>
 
@@ -3424,8 +4242,17 @@ Tutup Pasaran Pukul 15:00 WIB Dan Keluaran Nomor Result Pukul 15:15 WIB.
             <div class="links">
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://www.chinapools.asia/" target="_blank">
-                        CHINA POOLS
+                    <a class="item-link-with-badge" href="https://www.chinapools.asia/" target="_blank">
+                        <span class="item-label">CHINA POOLS</span>
+                        <span class="logo-badge web-badge" aria-label="Web">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="12" cy="12" r="9"></circle>
+                                <path d="M3 12h18"></path>
+                                <path d="M12 3a15 15 0 0 1 0 18"></path>
+                                <path d="M12 3a15 15 0 0 0 0 18"></path>
+                            </svg>
+                            <span>Web</span>
+                        </span>
                     </a>
                 </div>
 
@@ -3462,8 +4289,17 @@ Tutup Pasaran Pukul 15:00 WIB Dan Keluaran Nomor Result Pukul 15:15 WIB.
             <div class="links">
                 <div class="item">
                     <input type="checkbox">
-                    <a href="http://www.fujianlottery.com" target="_blank">
-                        FUJIAN15
+                    <a class="item-link-with-badge" href="http://www.fujianlottery.com" target="_blank">
+                        <span class="item-label">FUJIAN15</span>
+                        <span class="logo-badge web-badge" aria-label="Web">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="12" cy="12" r="9"></circle>
+                                <path d="M3 12h18"></path>
+                                <path d="M12 3a15 15 0 0 1 0 18"></path>
+                                <path d="M12 3a15 15 0 0 0 0 18"></path>
+                            </svg>
+                            <span>Web</span>
+                        </span>
                     </a>
                 </div>
 
@@ -3500,14 +4336,29 @@ Tutup Pasaran Pukul 15:00 WIB Dan Keluaran Nomor Result Pukul 15:15 WIB.
             <div class="links">
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://kick.com/live-ttm4d/videos" target="_blank">
-                        TOTO MACAU 4D 16.00 (KICK)
+                    <a class="item-link-with-badge" href="https://kick.com/live-ttm4d/videos" target="_blank">
+                        <span class="item-label">TOTO MACAU 4D 16.00 (KICK)</span>
+                        <span class="logo-badge kick-badge" aria-label="KICK">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M5 3h4v7.2L15.6 3H21l-7.3 8.1L21 21h-5.5L9 13.6V21H5z"/>
+                            </svg>
+                            <span>KICK</span>
+                        </span>
                     </a>
                 </div>
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://ttmpools.online/" target="_blank">
-                        TOTO MACAU 4D 16.00
+                    <a class="item-link-with-badge" href="https://ttmpools.online/" target="_blank">
+                        <span class="item-label">TOTO MACAU 4D 16.00</span>
+                        <span class="logo-badge web-badge" aria-label="Web">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="12" cy="12" r="9"></circle>
+                                <path d="M3 12h18"></path>
+                                <path d="M12 3a15 15 0 0 1 0 18"></path>
+                                <path d="M12 3a15 15 0 0 0 0 18"></path>
+                            </svg>
+                            <span>Web</span>
+                        </span>
                     </a>
                 </div>
 
@@ -3580,14 +4431,29 @@ Tutup Pasaran Pukul 15:00 WIB Dan Keluaran Nomor Result Pukul 15:15 WIB.
             <div class="links">
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://kick.com/king-kong-pools" target="_blank">
-                        KINGKONG4D (KICK)
+                    <a class="item-link-with-badge" href="https://kick.com/king-kong-pools" target="_blank">
+                        <span class="item-label">KINGKONG4D (KICK)</span>
+                        <span class="logo-badge kick-badge" aria-label="KICK">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M5 3h4v7.2L15.6 3H21l-7.3 8.1L21 21h-5.5L9 13.6V21H5z"/>
+                            </svg>
+                            <span>KICK</span>
+                        </span>
                     </a>
                 </div>
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://kingkongpools.com/" target="_blank">
-                        KINGKONG4D
+                    <a class="item-link-with-badge" href="https://kingkongpools.com/" target="_blank">
+                        <span class="item-label">KINGKONG4D</span>
+                        <span class="logo-badge web-badge" aria-label="Web">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="12" cy="12" r="9"></circle>
+                                <path d="M3 12h18"></path>
+                                <path d="M12 3a15 15 0 0 1 0 18"></path>
+                                <path d="M12 3a15 15 0 0 0 0 18"></path>
+                            </svg>
+                            <span>Web</span>
+                        </span>
                     </a>
                 </div>
 
@@ -3622,8 +4488,17 @@ Tutup Pasaran Pukul 15:00 WIB Dan Keluaran Nomor Result Pukul 15:15 WIB.
             <div class="links">
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://www.japanpools.online/" target="_blank">
-                        JAPAN POOLS
+                    <a class="item-link-with-badge" href="https://www.japanpools.online/" target="_blank">
+                        <span class="item-label">JAPAN POOLS</span>
+                        <span class="logo-badge web-badge" aria-label="Web">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="12" cy="12" r="9"></circle>
+                                <path d="M3 12h18"></path>
+                                <path d="M12 3a15 15 0 0 1 0 18"></path>
+                                <path d="M12 3a15 15 0 0 0 0 18"></path>
+                            </svg>
+                            <span>Web</span>
+                        </span>
                     </a>
                 </div>
 
@@ -3660,14 +4535,32 @@ Tutup Pasaran Pukul 15:00 WIB Dan Keluaran Nomor Result Pukul 15:15 WIB.
             <div class="links">
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://www.singaporepools.com.sg/en/product/Pages/4d_results.aspx?_gl=1*yz8y18*_ga*MTMzNTI4NjI3Ni4xNzg0MTExOTQ3*_ga_Q75EG8S40L*czE3ODQxMTE5NDYkbzEkZzAkdDE3ODQxMTE5NDYkajYwJGwwJGgyODU2NTY1MTQ." target="_blank">
-                        SINGAPORE POOLS / 4D (SELASA & JUMAT LIBUR)
+                    <a class="item-link-with-badge" href="https://www.singaporepools.com.sg/en/product/Pages/4d_results.aspx?_gl=1*yz8y18*_ga*MTMzNTI4NjI3Ni4xNzg0MTExOTQ3*_ga_Q75EG8S40L*czE3ODQxMTE5NDYkbzEkZzAkdDE3ODQxMTE5NDYkajYwJGwwJGgyODU2NTY1MTQ." target="_blank">
+                        <span class="item-label">SINGAPORE POOLS / 4D (SELASA & JUMAT LIBUR)</span>
+                        <span class="logo-badge web-badge" aria-label="Web">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="12" cy="12" r="9"></circle>
+                                <path d="M3 12h18"></path>
+                                <path d="M12 3a15 15 0 0 1 0 18"></path>
+                                <path d="M12 3a15 15 0 0 0 0 18"></path>
+                            </svg>
+                            <span>Web</span>
+                        </span>
                     </a>
                 </div>
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://www.singaporepools.com.sg/en/product/Pages/toto_results.aspx?_gl=1*5pkvu1*_ga*MTMzNTI4NjI3Ni4xNzg0MTExOTQ3*_ga_Q75EG8S40L*czE3ODUxNDY1MjkkbzE0JGcxJHQxNzg1MTQ2NTQxJGo0OCRsMCRoMzA3MzgwNzY3" target="_blank">
-                        SINGAPORE POOLS / TOTO (SELASA & JUMAT LIBUR)
+                    <a class="item-link-with-badge" href="https://www.singaporepools.com.sg/en/product/Pages/toto_results.aspx?_gl=1*5pkvu1*_ga*MTMzNTI4NjI3Ni4xNzg0MTExOTQ3*_ga_Q75EG8S40L*czE3ODUxNDY1MjkkbzE0JGcxJHQxNzg1MTQ2NTQxJGo0OCRsMCRoMzA3MzgwNzY3" target="_blank">
+                        <span class="item-label">SINGAPORE POOLS / TOTO (SELASA & JUMAT LIBUR)</span>
+                        <span class="logo-badge web-badge" aria-label="Web">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="12" cy="12" r="9"></circle>
+                                <path d="M3 12h18"></path>
+                                <path d="M12 3a15 15 0 0 1 0 18"></path>
+                                <path d="M12 3a15 15 0 0 0 0 18"></path>
+                            </svg>
+                            <span>Web</span>
+                        </span>
                     </a>
                 </div>
 
@@ -3705,8 +4598,17 @@ Tutup Pasaran Pukul 15:00 WIB Dan Keluaran Nomor Result Pukul 15:15 WIB.
             <div class="links">
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://www.kambojapools.net/" target="_blank">
-                        KAMBOJA POOLS
+                    <a class="item-link-with-badge" href="https://www.kambojapools.net/" target="_blank">
+                        <span class="item-label">KAMBOJA POOLS</span>
+                        <span class="logo-badge web-badge" aria-label="Web">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="12" cy="12" r="9"></circle>
+                                <path d="M3 12h18"></path>
+                                <path d="M12 3a15 15 0 0 1 0 18"></path>
+                                <path d="M12 3a15 15 0 0 0 0 18"></path>
+                            </svg>
+                            <span>Web</span>
+                        </span>
                     </a>
                 </div>
 
@@ -3743,8 +4645,17 @@ Tutup Pasaran Pukul 15:00 WIB Dan Keluaran Nomor Result Pukul 15:15 WIB.
             <div class="links">
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://www.malaysialottery.net/result" target="_blank">
-                        MALAYSIA NIGHT
+                    <a class="item-link-with-badge" href="https://www.malaysialottery.net/result" target="_blank">
+                        <span class="item-label">MALAYSIA NIGHT</span>
+                        <span class="logo-badge web-badge" aria-label="Web">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="12" cy="12" r="9"></circle>
+                                <path d="M3 12h18"></path>
+                                <path d="M12 3a15 15 0 0 1 0 18"></path>
+                                <path d="M12 3a15 15 0 0 0 0 18"></path>
+                            </svg>
+                            <span>Web</span>
+                        </span>
                     </a>
                 </div>
 
@@ -3779,14 +4690,29 @@ Tutup Pasaran Pukul 15:00 WIB Dan Keluaran Nomor Result Pukul 15:15 WIB.
             <div class="links">
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://kick.com/live-ttm4d/videos" target="_blank">
-                        TOTO MACAU 4D 19.00 (KICK)
+                    <a class="item-link-with-badge" href="https://kick.com/live-ttm4d/videos" target="_blank">
+                        <span class="item-label">TOTO MACAU 4D 19.00 (KICK)</span>
+                        <span class="logo-badge kick-badge" aria-label="KICK">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M5 3h4v7.2L15.6 3H21l-7.3 8.1L21 21h-5.5L9 13.6V21H5z"/>
+                            </svg>
+                            <span>KICK</span>
+                        </span>
                     </a>
                 </div>
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://ttmpools.online/" target="_blank">
-                        TOTO MACAU 4D 19.00
+                    <a class="item-link-with-badge" href="https://ttmpools.online/" target="_blank">
+                        <span class="item-label">TOTO MACAU 4D 19.00</span>
+                        <span class="logo-badge web-badge" aria-label="Web">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="12" cy="12" r="9"></circle>
+                                <path d="M3 12h18"></path>
+                                <path d="M12 3a15 15 0 0 1 0 18"></path>
+                                <path d="M12 3a15 15 0 0 0 0 18"></path>
+                            </svg>
+                            <span>Web</span>
+                        </span>
                     </a>
                 </div>
 
@@ -3821,8 +4747,17 @@ Tutup Pasaran Pukul 15:00 WIB Dan Keluaran Nomor Result Pukul 15:15 WIB.
             <div class="links">
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://www.mongoliawinner.com" target="_blank">
-                        JAPAN POOLS
+                    <a class="item-link-with-badge" href="https://www.mongoliawinner.com" target="_blank">
+                        <span class="item-label">MONGOLIA</span>
+                        <span class="logo-badge web-badge" aria-label="Web">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="12" cy="12" r="9"></circle>
+                                <path d="M3 12h18"></path>
+                                <path d="M12 3a15 15 0 0 1 0 18"></path>
+                                <path d="M12 3a15 15 0 0 0 0 18"></path>
+                            </svg>
+                            <span>Web</span>
+                        </span>
                     </a>
                 </div>
 
@@ -3859,8 +4794,17 @@ Tutup Pasaran Pukul 15:00 WIB Dan Keluaran Nomor Result Pukul 15:15 WIB.
             <div class="links">
                 <div class="item">
                     <input type="checkbox">
-                    <a href="http://www.fujianlottery.com" target="_blank">
-                        FUJIAN20
+                    <a class="item-link-with-badge" href="http://www.fujianlottery.com" target="_blank">
+                        <span class="item-label">FUJIAN20</span>
+                        <span class="logo-badge web-badge" aria-label="Web">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="12" cy="12" r="9"></circle>
+                                <path d="M3 12h18"></path>
+                                <path d="M12 3a15 15 0 0 1 0 18"></path>
+                                <path d="M12 3a15 15 0 0 0 0 18"></path>
+                            </svg>
+                            <span>Web</span>
+                        </span>
                     </a>
                 </div>
 
@@ -3897,14 +4841,29 @@ Tutup Pasaran Pukul 15:00 WIB Dan Keluaran Nomor Result Pukul 15:15 WIB.
             <div class="links">
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://www.pcso.gov.ph/SearchLottoResult.aspx" target="_blank">
-                        PCSO (MINGGU LIBUR)
+                    <a class="item-link-with-badge" href="https://www.pcso.gov.ph/SearchLottoResult.aspx" target="_blank">
+                        <span class="item-label">PCSO (MINGGU LIBUR)</span>
+                        <span class="logo-badge web-badge" aria-label="Web">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="12" cy="12" r="9"></circle>
+                                <path d="M3 12h18"></path>
+                                <path d="M12 3a15 15 0 0 1 0 18"></path>
+                                <path d="M12 3a15 15 0 0 0 0 18"></path>
+                            </svg>
+                            <span>Web</span>
+                        </span>
                     </a>
                 </div>
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://www.youtube.com/@PCSOGOVPHOfficial/streams" target="_blank">
-                        PCSO YOUTUBE (MINGGU LIBUR)
+                    <a class="item-link-with-badge" href="https://www.youtube.com/@PCSOGOVPHOfficial/streams" target="_blank">
+                        <span class="item-label">PCSO YOUTUBE (MINGGU LIBUR)</span>
+                        <span class="logo-badge youtube-badge" aria-label="YouTube">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.5 31.5 0 0 0 0 12a31.5 31.5 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.5 31.5 0 0 0 24 12a31.5 31.5 0 0 0-.5-5.8ZM9.6 15.7V8.3l6.4 3.7-6.4 3.7Z"/>
+                            </svg>
+                            <span>YouTube</span>
+                        </span>
                     </a>
                 </div>
 
@@ -3939,8 +4898,17 @@ Tutup Pasaran Pukul 15:00 WIB Dan Keluaran Nomor Result Pukul 15:15 WIB.
             <div class="links">
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://taiwan-lotto.com/" target="_blank">
-                        TAIWAN
+                    <a class="item-link-with-badge" href="https://taiwan-lotto.com/" target="_blank">
+                        <span class="item-label">TAIWAN</span>
+                        <span class="logo-badge web-badge" aria-label="Web">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="12" cy="12" r="9"></circle>
+                                <path d="M3 12h18"></path>
+                                <path d="M12 3a15 15 0 0 1 0 18"></path>
+                                <path d="M12 3a15 15 0 0 0 0 18"></path>
+                            </svg>
+                            <span>Web</span>
+                        </span>
                     </a>
                 </div>
 
@@ -3977,8 +4945,17 @@ Tutup Pasaran Pukul 15:00 WIB Dan Keluaran Nomor Result Pukul 15:15 WIB.
             <div class="links">
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://yordania4d.com/pool/draw" target="_blank">
-                        YORDANIA POOLS
+                    <a class="item-link-with-badge" href="https://yordania4d.com/pool/draw" target="_blank">
+                        <span class="item-label">YORDANIA POOLS</span>
+                        <span class="logo-badge web-badge" aria-label="Web">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="12" cy="12" r="9"></circle>
+                                <path d="M3 12h18"></path>
+                                <path d="M12 3a15 15 0 0 1 0 18"></path>
+                                <path d="M12 3a15 15 0 0 0 0 18"></path>
+                            </svg>
+                            <span>Web</span>
+                        </span>
                     </a>
                 </div>
 
@@ -4015,14 +4992,29 @@ Tutup Pasaran Pukul 15:00 WIB Dan Keluaran Nomor Result Pukul 15:15 WIB.
             <div class="links">
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://kick.com/studio-live-game" target="_blank">
-                        TOTO MACAU 5D (KICK)
+                    <a class="item-link-with-badge" href="https://kick.com/studio-live-game" target="_blank">
+                        <span class="item-label">TOTO MACAU 5D (KICK)</span>
+                        <span class="logo-badge kick-badge" aria-label="KICK">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M5 3h4v7.2L15.6 3H21l-7.3 8.1L21 21h-5.5L9 13.6V21H5z"/>
+                            </svg>
+                            <span>KICK</span>
+                        </span>
                     </a>
                 </div>
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://ttmpools.online/" target="_blank">
-                        TOTO MACAU 5D
+                    <a class="item-link-with-badge" href="https://ttmpools.online/" target="_blank">
+                        <span class="item-label">TOTO MACAU 5D</span>
+                        <span class="logo-badge web-badge" aria-label="Web">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="12" cy="12" r="9"></circle>
+                                <path d="M3 12h18"></path>
+                                <path d="M12 3a15 15 0 0 1 0 18"></path>
+                                <path d="M12 3a15 15 0 0 0 0 18"></path>
+                            </svg>
+                            <span>Web</span>
+                        </span>
                     </a>
                 </div>
                 
@@ -4061,8 +5053,17 @@ Tutup Pasaran Pukul 21:00 WIB Dan Keluaran Nomor Result Pukul 21:15 WIB.
             <div class="links">
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://chicagolottery.vip/" target="_blank">
-                        CHICAGO DAY
+                    <a class="item-link-with-badge" href="https://chicagolottery.vip/" target="_blank">
+                        <span class="item-label">CHICAGO DAY</span>
+                        <span class="logo-badge web-badge" aria-label="Web">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="12" cy="12" r="9"></circle>
+                                <path d="M3 12h18"></path>
+                                <path d="M12 3a15 15 0 0 1 0 18"></path>
+                                <path d="M12 3a15 15 0 0 0 0 18"></path>
+                            </svg>
+                            <span>Web</span>
+                        </span>
                     </a>
                 </div>
 
@@ -4099,14 +5100,29 @@ Tutup Pasaran Pukul 21:00 WIB Dan Keluaran Nomor Result Pukul 21:15 WIB.
             <div class="links">
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://kick.com/live-ttm4d/videos" target="_blank">
-                        TOTO MACAU 4D 22.00 (KICK)
+                    <a class="item-link-with-badge" href="https://kick.com/live-ttm4d/videos" target="_blank">
+                        <span class="item-label">TOTO MACAU 4D 22.00 (KICK)</span>
+                        <span class="logo-badge kick-badge" aria-label="KICK">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M5 3h4v7.2L15.6 3H21l-7.3 8.1L21 21h-5.5L9 13.6V21H5z"/>
+                            </svg>
+                            <span>KICK</span>
+                        </span>
                     </a>
                 </div>
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://ttmpools.online/" target="_blank">
-                        TOTO MACAU 4D 22.00
+                    <a class="item-link-with-badge" href="https://ttmpools.online/" target="_blank">
+                        <span class="item-label">TOTO MACAU 4D 22.00</span>
+                        <span class="logo-badge web-badge" aria-label="Web">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="12" cy="12" r="9"></circle>
+                                <path d="M3 12h18"></path>
+                                <path d="M12 3a15 15 0 0 1 0 18"></path>
+                                <path d="M12 3a15 15 0 0 0 0 18"></path>
+                            </svg>
+                            <span>Web</span>
+                        </span>
                     </a>
                 </div>
 
@@ -4141,8 +5157,17 @@ Tutup Pasaran Pukul 21:00 WIB Dan Keluaran Nomor Result Pukul 21:15 WIB.
             <div class="links">
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://nusantarapools.com" target="_blank">
-                        NUSANTARA
+                    <a class="item-link-with-badge" href="https://nusantarapools.com" target="_blank">
+                        <span class="item-label">NUSANTARA</span>
+                        <span class="logo-badge web-badge" aria-label="Web">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="12" cy="12" r="9"></circle>
+                                <path d="M3 12h18"></path>
+                                <path d="M12 3a15 15 0 0 1 0 18"></path>
+                                <path d="M12 3a15 15 0 0 0 0 18"></path>
+                            </svg>
+                            <span>Web</span>
+                        </span>
                     </a>
                 </div>
 
@@ -4179,14 +5204,29 @@ Tutup Pasaran Pukul 21:00 WIB Dan Keluaran Nomor Result Pukul 21:15 WIB.
             <div class="links">
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://tnlottery.com/winning-numbers/cash4" target="_blank">
-                        TENNESSE MORNING (MINGGU LIBUR)
+                    <a class="item-link-with-badge" href="https://tnlottery.com/winning-numbers/cash4" target="_blank">
+                        <span class="item-label">TENNESSE MORNING (MINGGU LIBUR)</span>
+                        <span class="logo-badge web-badge" aria-label="Web">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="12" cy="12" r="9"></circle>
+                                <path d="M3 12h18"></path>
+                                <path d="M12 3a15 15 0 0 1 0 18"></path>
+                                <path d="M12 3a15 15 0 0 0 0 18"></path>
+                            </svg>
+                            <span>Web</span>
+                        </span>
                     </a>
                 </div>
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://www.youtube.com/@tnlottery/videos" target="_blank">
-                        TENNESSE MORNING YOUTUBE (MINGGU LIBUR)
+                    <a class="item-link-with-badge" href="https://www.youtube.com/@tnlottery/videos" target="_blank">
+                        <span class="item-label">TENNESSE MORNING YOUTUBE (MINGGU LIBUR)</span>
+                        <span class="logo-badge youtube-badge" aria-label="YouTube">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.5 31.5 0 0 0 0 12a31.5 31.5 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.5 31.5 0 0 0 24 12a31.5 31.5 0 0 0-.5-5.8ZM9.6 15.7V8.3l6.4 3.7-6.4 3.7Z"/>
+                            </svg>
+                            <span>YouTube</span>
+                        </span>
                     </a>
                 </div>
 
@@ -4221,8 +5261,17 @@ Tutup Pasaran Pukul 21:00 WIB Dan Keluaran Nomor Result Pukul 21:15 WIB.
             <div class="links">
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://www.hongkongpools.com/" target="_blank">
-                        HONGKONG POOLS
+                    <a class="item-link-with-badge" href="https://www.hongkongpools.com/" target="_blank">
+                        <span class="item-label">HONGKONG POOLS</span>
+                        <span class="logo-badge web-badge" aria-label="Web">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="12" cy="12" r="9"></circle>
+                                <path d="M3 12h18"></path>
+                                <path d="M12 3a15 15 0 0 1 0 18"></path>
+                                <path d="M12 3a15 15 0 0 0 0 18"></path>
+                            </svg>
+                            <span>Web</span>
+                        </span>
                     </a>
                 </div>
 
@@ -4259,14 +5308,29 @@ Tutup Pasaran Pukul 21:00 WIB Dan Keluaran Nomor Result Pukul 21:15 WIB.
             <div class="links">
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://kick.com/hongkong-lotto-official" target="_blank">
-                        HONGKONG LOTTO (KICK)
+                    <a class="item-link-with-badge" href="https://kick.com/hongkong-lotto-official" target="_blank">
+                        <span class="item-label">HONGKONG LOTTO (KICK)</span>
+                        <span class="logo-badge kick-badge" aria-label="KICK">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M5 3h4v7.2L15.6 3H21l-7.3 8.1L21 21h-5.5L9 13.6V21H5z"/>
+                            </svg>
+                            <span>KICK</span>
+                        </span>
                     </a>
                 </div>
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://hongkonglotto.com/" target="_blank">
-                        HONGKONG LOTTO
+                    <a class="item-link-with-badge" href="https://hongkonglotto.com/" target="_blank">
+                        <span class="item-label">HONGKONG LOTTO</span>
+                        <span class="logo-badge web-badge" aria-label="Web">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="12" cy="12" r="9"></circle>
+                                <path d="M3 12h18"></path>
+                                <path d="M12 3a15 15 0 0 1 0 18"></path>
+                                <path d="M12 3a15 15 0 0 0 0 18"></path>
+                            </svg>
+                            <span>Web</span>
+                        </span>
                     </a>
                 </div>
 
@@ -4303,20 +5367,45 @@ Tutup Pasaran Pukul 21:00 WIB Dan Keluaran Nomor Result Pukul 21:15 WIB.
             <div class="links">
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://www.texaslottery.com/export/sites/lottery/index.html" target="_blank">
-                        TEXAS MORNING (SENIN LIBUR)
+                    <a class="item-link-with-badge" href="https://www.texaslottery.com/export/sites/lottery/index.html" target="_blank">
+                        <span class="item-label">TEXAS MORNING (SENIN LIBUR)</span>
+                        <span class="logo-badge web-badge" aria-label="Web">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="12" cy="12" r="9"></circle>
+                                <path d="M3 12h18"></path>
+                                <path d="M12 3a15 15 0 0 1 0 18"></path>
+                                <path d="M12 3a15 15 0 0 0 0 18"></path>
+                            </svg>
+                            <span>Web</span>
+                        </span>
                     </a>
                 </div>
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://www.texaslottery.com/export/sites/lottery/Games/Web_Cast.html" target="_blank">
-                        TEXAS MORNING LIVE (SENIN LIBUR)
+                    <a class="item-link-with-badge" href="https://www.texaslottery.com/export/sites/lottery/Games/Web_Cast.html" target="_blank">
+                        <span class="item-label">TEXAS MORNING LIVE (SENIN LIBUR)</span>
+                        <span class="logo-badge live-badge" aria-label="LIVE">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="12" cy="12" r="2.5"></circle>
+                                <path d="M7.5 7.5a6.4 6.4 0 0 0 0 9"></path>
+                                <path d="M16.5 7.5a6.4 6.4 0 0 1 0 9"></path>
+                                <path d="M4.2 4.2a11 11 0 0 0 0 15.6"></path>
+                                <path d="M19.8 4.2a11 11 0 0 1 0 15.6"></path>
+                            </svg>
+                            <span>LIVE</span>
+                        </span>
                     </a>
                 </div>
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://www.youtube.com/@TheTexasLottery/videos" target="_blank">
-                        TEXAS MORNING YOUTUBE (SENIN LIBUR)
+                    <a class="item-link-with-badge" href="https://www.youtube.com/@TheTexasLottery/videos" target="_blank">
+                        <span class="item-label">TEXAS MORNING YOUTUBE (SENIN LIBUR)</span>
+                        <span class="logo-badge youtube-badge" aria-label="YouTube">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.5 31.5 0 0 0 0 12a31.5 31.5 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.5 31.5 0 0 0 24 12a31.5 31.5 0 0 0-.5-5.8ZM9.6 15.7V8.3l6.4 3.7-6.4 3.7Z"/>
+                            </svg>
+                            <span>YouTube</span>
+                        </span>
                     </a>
                 </div>
 
@@ -4351,14 +5440,29 @@ Tutup Pasaran Pukul 21:00 WIB Dan Keluaran Nomor Result Pukul 21:15 WIB.
             <div class="links">
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://kick.com/live-ttm4d/videos" target="_blank">
-                        TOTO MACAU 4D 23.00 (KICK)
+                    <a class="item-link-with-badge" href="https://kick.com/live-ttm4d/videos" target="_blank">
+                        <span class="item-label">TOTO MACAU 4D 23.00 (KICK)</span>
+                        <span class="logo-badge kick-badge" aria-label="KICK">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M5 3h4v7.2L15.6 3H21l-7.3 8.1L21 21h-5.5L9 13.6V21H5z"/>
+                            </svg>
+                            <span>KICK</span>
+                        </span>
                     </a>
                 </div>
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://ttmpools.online/" target="_blank">
-                        TOTO MACAU 4D 23.00
+                    <a class="item-link-with-badge" href="https://ttmpools.online/" target="_blank">
+                        <span class="item-label">TOTO MACAU 4D 23.00</span>
+                        <span class="logo-badge web-badge" aria-label="Web">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="12" cy="12" r="9"></circle>
+                                <path d="M3 12h18"></path>
+                                <path d="M12 3a15 15 0 0 1 0 18"></path>
+                                <path d="M12 3a15 15 0 0 0 0 18"></path>
+                            </svg>
+                            <span>Web</span>
+                        </span>
                     </a>
                 </div>
 
@@ -4393,14 +5497,29 @@ Tutup Pasaran Pukul 21:00 WIB Dan Keluaran Nomor Result Pukul 21:15 WIB.
             <div class="links">
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://kick.com/king-kong-pools" target="_blank">
-                        KINGKONG4D (KICK)
+                    <a class="item-link-with-badge" href="https://kick.com/king-kong-pools" target="_blank">
+                        <span class="item-label">KINGKONG4D (KICK)</span>
+                        <span class="logo-badge kick-badge" aria-label="KICK">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M5 3h4v7.2L15.6 3H21l-7.3 8.1L21 21h-5.5L9 13.6V21H5z"/>
+                            </svg>
+                            <span>KICK</span>
+                        </span>
                     </a>
                 </div>
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://kingkongpools.com/" target="_blank">
-                        KINGKONG4D
+                    <a class="item-link-with-badge" href="https://kingkongpools.com/" target="_blank">
+                        <span class="item-label">KINGKONG4D</span>
+                        <span class="logo-badge web-badge" aria-label="Web">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="12" cy="12" r="9"></circle>
+                                <path d="M3 12h18"></path>
+                                <path d="M12 3a15 15 0 0 1 0 18"></path>
+                                <path d="M12 3a15 15 0 0 0 0 18"></path>
+                            </svg>
+                            <span>Web</span>
+                        </span>
                     </a>
                 </div>
 
@@ -4435,14 +5554,29 @@ Tutup Pasaran Pukul 21:00 WIB Dan Keluaran Nomor Result Pukul 21:15 WIB.
             <div class="links">
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://kick.com/studio-live-game" target="_blank">
-                        JAKARTA POOLS (KICK)
+                    <a class="item-link-with-badge" href="https://kick.com/studio-live-game" target="_blank">
+                        <span class="item-label">JAKARTA POOLS (KICK)</span>
+                        <span class="logo-badge kick-badge" aria-label="KICK">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M5 3h4v7.2L15.6 3H21l-7.3 8.1L21 21h-5.5L9 13.6V21H5z"/>
+                            </svg>
+                            <span>KICK</span>
+                        </span>
                     </a>
                 </div>
                 <div class="item">
                     <input type="checkbox">
-                    <a href="https://jkt-pools.online/" target="_blank">
-                        JAKARTA POOLS
+                    <a class="item-link-with-badge" href="https://jkt-pools.online/" target="_blank">
+                        <span class="item-label">JAKARTA POOLS</span>
+                        <span class="logo-badge web-badge" aria-label="Web">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="12" cy="12" r="9"></circle>
+                                <path d="M3 12h18"></path>
+                                <path d="M12 3a15 15 0 0 1 0 18"></path>
+                                <path d="M12 3a15 15 0 0 0 0 18"></path>
+                            </svg>
+                            <span>Web</span>
+                        </span>
                     </a>
                 </div>
 
@@ -4477,8 +5611,17 @@ Tutup Pasaran Pukul 21:00 WIB Dan Keluaran Nomor Result Pukul 21:15 WIB.
             <div class="links">
                 <div class="item">
                     <input type="checkbox">
-                    <a href="http://www.fujianlottery.com" target="_blank">
-                        FUJIAN23
+                    <a class="item-link-with-badge" href="http://www.fujianlottery.com" target="_blank">
+                        <span class="item-label">FUJIAN23</span>
+                        <span class="logo-badge web-badge" aria-label="Web">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="12" cy="12" r="9"></circle>
+                                <path d="M3 12h18"></path>
+                                <path d="M12 3a15 15 0 0 1 0 18"></path>
+                                <path d="M12 3a15 15 0 0 0 0 18"></path>
+                            </svg>
+                            <span>Web</span>
+                        </span>
                     </a>
                 </div>
 
@@ -4594,6 +5737,7 @@ const defaultHistoryData = {
         { date: '04-11-2026', p1: '8281' }
     ],
     'card-maryland-mid': [
+        { date: '13-11-2026', p1: '2027' },
         { date: '12-11-2026', p1: '1600' },
         { date: '11-11-2026', p1: '2323' },
         { date: '10-11-2026', p1: '9575' },
@@ -4605,6 +5749,7 @@ const defaultHistoryData = {
         { date: '04-11-2026', p1: '6804' }
     ],
     'card-ohio-mid': [
+        { date: '13-11-2026', p1: '0140' },
         { date: '12-11-2026', p1: '7140' },
         { date: '11-11-2026', p1: '7255' },
         { date: '10-11-2026', p1: '5015' },
@@ -4616,6 +5761,7 @@ const defaultHistoryData = {
         { date: '04-11-2026', p1: '7729' }
     ],
     'card-georgia-mid': [
+        { date: '13-11-2026', p1: '3649' },
         { date: '12-11-2026', p1: '4556' },
         { date: '11-11-2026', p1: '5815' },
         { date: '10-11-2026', p1: '6683' },
@@ -4627,6 +5773,7 @@ const defaultHistoryData = {
         { date: '04-11-2026', p1: '4956' }
     ],
     'card-newjersey-mid': [
+        { date: '13-11-2026', p1: '3730' },
         { date: '12-11-2026', p1: '3108' },
         { date: '11-11-2026', p1: '4296' },
         { date: '10-11-2026', p1: '8644' },
@@ -4638,6 +5785,7 @@ const defaultHistoryData = {
         { date: '04-11-2026', p1: '7556' }
     ],
     'card-germany-plus5': [
+        { date: '13-11-2026', p1: '4562' },
         { date: '12-11-2026', p1: '9616' },
         { date: '11-11-2026', p1: '3225' },
         { date: '10-11-2026', p1: '9435' },
@@ -4649,6 +5797,7 @@ const defaultHistoryData = {
         { date: '04-11-2026', p1: '5393' }
     ],
     'card-turki-pools': [
+        { date: '13-11-2026', p1: '7910', p2: '6677', p3: '8942' },
         { date: '12-11-2026', p1: '2067', p2: '3993', p3: '9084' },
         { date: '11-11-2026', p1: '8207', p2: '1103', p3: '8019' },
         { date: '10-11-2026', p1: '6233', p2: '9870', p3: '7769' },
@@ -4660,6 +5809,7 @@ const defaultHistoryData = {
         { date: '04-11-2026', p1: '4866', p2: '1969', p3: '6841' }
     ],
     'card-tennesse-mid': [
+        { date: '13-11-2026', p1: '6156' },
         { date: '12-11-2026', p1: '8142' },
         { date: '11-11-2026', p1: '3121' },
         { date: '11-11-2026', p1: '3121' },
@@ -4672,6 +5822,7 @@ const defaultHistoryData = {
         { date: '03-11-2026', p1: '4600' }
     ],
     'card-indiana-mid': [
+        { date: '13-11-2026', p1: '2604' },
         { date: '12-11-2026', p1: '1547' },
         { date: '11-11-2026', p1: '2518' },
         { date: '10-11-2026', p1: '1905' },
@@ -4683,6 +5834,7 @@ const defaultHistoryData = {
         { date: '04-11-2026', p1: '1728' }
     ],
     'card-texas-day': [
+        { date: '13-11-2026', p1: '8871' },
         { date: '12-11-2026', p1: '8179' },
         { date: '11-11-2026', p1: '2743' },
         { date: '10-11-2026', p1: '7068' },
@@ -4694,7 +5846,7 @@ const defaultHistoryData = {
         { date: '03-11-2026', p1: '5715' }
     ],
     'card-kentucky-mid': [
-        { date: '12-11-2026', p1: '3972' },
+        { date: '12-11-2026', p1: '9212' },
         { date: '11-11-2026', p1: '6198' },
         { date: '10-11-2026', p1: '6568' },
         { date: '09-11-2026', p1: '0625' },
@@ -4705,6 +5857,7 @@ const defaultHistoryData = {
         { date: '04-11-2026', p1: '5038' }
     ],
     'card-florida-mid': [
+        { date: '13-11-2026', p1: '2234' },
         { date: '12-11-2026', p1: '8524' },
         { date: '11-11-2026', p1: '6726' },
         { date: '10-11-2026', p1: '8076' },
@@ -4716,6 +5869,7 @@ const defaultHistoryData = {
         { date: '04-11-2026', p1: '6734' }
     ],
     'card-pennsylvania-day': [
+        { date: '13-11-2026', p1: '5876' },
         { date: '12-11-2026', p1: '9591' },
         { date: '11-11-2026', p1: '9362' },
         { date: '10-11-2026', p1: '3638' },
@@ -4727,6 +5881,7 @@ const defaultHistoryData = {
         { date: '04-11-2026', p1: '5694' }
     ],
     'card-illinois-mid': [
+        { date: '13-11-2026', p1: '0897' },
         { date: '12-11-2026', p1: '4186' },
         { date: '11-11-2026', p1: '2119' },
         { date: '10-11-2026', p1: '8527' },
@@ -4738,6 +5893,7 @@ const defaultHistoryData = {
         { date: '04-11-2026', p1: '6937' }
     ],
     'card-missouri-mid': [
+        { date: '13-11-2026', p1: '0655' },
         { date: '12-11-2026', p1: '0916' },
         { date: '11-11-2026', p1: '7447' },
         { date: '10-11-2026', p1: '1216' },
@@ -4749,6 +5905,7 @@ const defaultHistoryData = {
         { date: '04-11-2026', p1: '9152' }
     ],
     'card-virginia-day': [
+        { date: '13-11-2026', p1: '1589' },
         { date: '12-11-2026', p1: '4464' },
         { date: '11-11-2026', p1: '1938' },
         { date: '10-11-2026', p1: '8232' },
@@ -4760,6 +5917,7 @@ const defaultHistoryData = {
         { date: '04-11-2026', p1: '1780' }
     ],
     'card-Arkansas-mid': [
+        { date: '13-11-2026', p1: '9172' },
         { date: '12-11-2026', p1: '7822' },
         { date: '11-11-2026', p1: '6491' },
         { date: '10-11-2026', p1: '1795' },
@@ -4771,6 +5929,7 @@ const defaultHistoryData = {
         { date: '03-11-2026', p1: '4441' }
     ],
     'card-newyork-mid': [
+        { date: '13-11-2026', p1: '1568' },
         { date: '12-11-2026', p1: '9539' },
         { date: '11-11-2026', p1: '3723' },
         { date: '10-11-2026', p1: '9593' },
